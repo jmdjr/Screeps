@@ -36,38 +36,38 @@ var ScreepType = {
 
 var Spawner = function() {return Game.spawns['queen']; }
 
-var checkScreep = function(screepType, name) {
-    return Spawner().spawnCreep(screepType.signature, name, {memory: screepType.memory, dryRun: true});
+var checkScreep = function(st, name) {
+    return Spawner().spawnCreep(st.signature, name, {memory: st.memory, dryRun: true});
 }
 
-var spawnScreep = function(screepType, name) {
+var spawnScreep = function(st, name) {
     
     if(!Game.creeps[name]) {
         delete Memory.creeps[name];
         console.log('Clearing non-existing creep memory:', name);
     }
 
-    return Spawner().spawnCreep(screepType.signature, name, {memory: screepType.memory});
+    return Spawner().spawnCreep(st.signature, name, {memory: st.memory});
 }
 
-var filterForScreeps = function(ScreepType) {
-    return _.filter(Game.creeps, (creep) => creep.memory.role == ScreepType.memory.role);
+var filterForScreeps = function(st) {
+    return _.filter(Game.creeps, (creep) => creep.memory.role == st.memory.role);
 }
 
-var CheckMins = function(ScreepType) 
+var CheckMins = function(st) 
 {
-    var screeps = filterForScreeps(ScreepType);
-    return screeps.length < ScreepType.min;
+    var screeps = filterForScreeps(st);
+    return screeps.length < st.min;
 }
 
-var CheckAndSpawnMin = function(ScreepType) 
+var CheckAndSpawnMin = function(st) 
 {
-    var screeps = filterForScreeps(ScreepType);
-    var name = ScreepType.name + Game.time;
+    var screeps = filterForScreeps(st);
+    var name = st.name + Game.time;
 
-    if(screeps.length < ScreepType.min) 
+    if(screeps.length < st.min) 
     {
-        spawnScreep(ScreepType, name);
+        spawnScreep(st, name);
     }
 }
 
