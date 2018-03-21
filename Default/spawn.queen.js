@@ -7,7 +7,7 @@ var ScreepType = {
         limit: 3,
         min: 2,
         name: "stem",
-        memory: { role: 'stem' }
+        memory: { role: 'stem', target: null }
     },
 
     hauler: {
@@ -15,7 +15,7 @@ var ScreepType = {
         limit: 3,
         min: 2,
         name: "hauler",
-        memory: { role: 'hauler' }
+        memory: { role: 'hauler', target: null }
     },
 
     builder: {
@@ -23,7 +23,7 @@ var ScreepType = {
         limit: 3,
         min: 1,
         name: "builder",
-        memory: { role: 'builder', building: false }
+        memory: { role: 'builder', building: false, target: null }
     },
     harvester: {
         signature: [WORK, WORK, MOVE, MOVE],

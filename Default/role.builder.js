@@ -2,20 +2,31 @@
 // role.builder
 module.exports = {
         run: function(creep) {
-    
-            if(creep.memory.building && creep.carry.energy == 0) {
-                creep.memory.building = false;
-            }
-            if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-                creep.memory.building = true;
-            }
-    
-            if(creep.memory.building) {
+            
+            if(!creep.memory.building) {
                 var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+
                 if(targets.length) {
-                    if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    creep.memory.target = targets[0];
+                    if(creep.build(creep.memory.target) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(creep.memory.target, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
+                    else 
+                    {
+                        creep.memory.building = true;
+                    }
+                }
+            }
+            else
+            {
+                var target = creep.memory.target;
+                if(target == null 
+                    || target.progress == target.progressTotal) 
+                {
+                    creep.memory.building = false;
+                }
+                else if(creep.build(target) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             }
             // else {
