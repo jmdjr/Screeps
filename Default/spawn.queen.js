@@ -27,7 +27,7 @@ var ScreepType = {
     },
     harvester: {
         signature: [WORK, WORK, MOVE, MOVE],
-        limit: 3,
+        limit: 2,
         min: 1,
         name: "harvester",
         memory: { role: 'harvester', target: null }
@@ -107,7 +107,6 @@ module.exports =
             var stems = filterForScreeps(ScreepType.stem);
             for(var stem in stems) 
             {
-                console.log(stem)
                 var stem = Game.creeps[stem];
                 if(!!stem) 
                 {
