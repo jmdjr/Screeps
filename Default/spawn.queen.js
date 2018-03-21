@@ -12,7 +12,7 @@ var ScreepType = {
 
     hauler: {
         signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-        limit: 5,
+        limit: 3,
         min: 2,
         name: "hauler",
         memory: { role: 'hauler' }
@@ -68,6 +68,15 @@ var CheckAndSpawnMin = function (st) {
     }
 }
 
+var CheckAndSpawnLimit = function (st) {
+    var screeps = filterForScreeps(st);
+    var name = st.name + Game.time;
+
+    if (screeps.length < st.limit) {
+        spawnScreep(st, name);
+    }
+}
+
 var SpawnerSay = function(text) {
     Spawner().room.visual.text(
         text,
@@ -107,6 +116,9 @@ module.exports =
                 }
             }
             // plenty of screeps, ensure that we reach limits.
+            CheckAndSpawnMin(ScreepType.harvester);
+            CheckAndSpawnLimit(ScreepType.builder);
+            CheckAndSpawnMin(ScreepType.hauler);
         }
 
         if (Spawner().spawning) {
