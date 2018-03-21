@@ -32,7 +32,6 @@ module.exports =
             });
 
             var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role == 'builder'});
-            console.log(hungryCreeps.join(', '));
             
             targets = targets.concat(hungryCreeps);
 
