@@ -31,11 +31,11 @@ module.exports =
                 }
             });
 
-            var hungryCreeps = _.filter(Game.creeps, (c) => c.memory.role !== 'hauler');
+            var hungryCreeps = _.filter(Game.creeps, (c) => c.memory.role !== 'hauler' && c.energy < c.energyCapacity);
             
             targets = targets.concat(hungryCreeps);
 
-            targets.sort((a, b) => (a.energy / a.energyCapacity) - (b.energy / b.energyCapacity));
+            targets.sort((a, b) => (b.energy / b.energyCapacity) - (a.energy / a.energyCapacity));
 
             if(targets.length > 0)
             {
