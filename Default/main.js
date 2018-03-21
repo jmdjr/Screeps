@@ -7,7 +7,6 @@ roleRunners["hauler"] = require('role.hauler');
 
 var spawnQueen = require('spawn.queen');
 
-
 module.exports.loop = function () 
 {    
 

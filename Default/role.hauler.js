@@ -25,7 +25,9 @@ module.exports =
                 }
             });
 
+            var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role == 'builder' });
 
+            targets = targets.concat(hungryCreeps);
 
             if(targets.length > 0)
             {

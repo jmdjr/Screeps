@@ -30,7 +30,7 @@ var ScreepType = {
         limit: 3,
         min: 1,
         name: "harvester",
-        memory: { role: 'harvester' }
+        memory: { role: 'harvester', target: null }
     }
 }
 
