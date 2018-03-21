@@ -25,7 +25,8 @@ module.exports =
                     return (structure.structureType == STRUCTURE_EXTENSION 
                             || structure.structureType == STRUCTURE_TOWER
                             || structure.structureType == STRUCTURE_SPAWN
-                            || structure.structureType == STRUCTURE_STORAGE) 
+                            || structure.structureType == STRUCTURE_STORAGE
+                            || structure.structureType == STRUCTURE_CONTAINER) 
                         && structure.energy < structure.energyCapacity;
                 }
             });
@@ -38,6 +39,7 @@ module.exports =
                 // check if my current target is 
                 for(var target in targets) 
                 {
+                    console.log(target);
                     if(target.energy < target.energyCapacity) 
                     {
                         creep.memory.target = target.id;
