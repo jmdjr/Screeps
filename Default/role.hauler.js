@@ -39,7 +39,7 @@ module.exports =
                 // check if my current target is 
                 for(var target in targets) 
                 {
-                    console.log(target);
+                    target = targets[target];
                     if(target.energy < target.energyCapacity) 
                     {
                         creep.memory.target = target.id;
