@@ -44,7 +44,6 @@ var spawnScreep = function (st, name) {
 
     if (!Game.creeps[name]) {
         delete Memory.creeps[name];
-        console.log('Clearing non-existing creep memory:', name);
     }
 
     return Spawner().spawnCreep(st.signature, name, { memory: st.memory });
