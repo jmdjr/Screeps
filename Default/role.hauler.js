@@ -48,11 +48,14 @@ module.exports =
                 }
             }
 
-            var target = Game.getObjectById(creep.memory.target);
-            if(target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
+            if(creep.memory.target != null)
             {
-                creep.moveTo(target, { visualizePathStyle: { stroke: '#ffffff' } });
-                creep.say(target.name);
+                var target = Game.getObjectById(creep.memory.target);
+                if(target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
+                {
+                    creep.moveTo(target, { visualizePathStyle: { stroke: '#ffffff' } });
+                    creep.say(target.name);
+                }
             }
         }
     }
