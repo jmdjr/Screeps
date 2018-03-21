@@ -34,6 +34,9 @@ module.exports =
             var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role != 'hauler' && c.energy < c.energyCapacity });
 
             targets = targets.concat(hungryCreeps);
+
+            targets.sort((a, b) => (a.energy / a.energyCapacity) - (b.energy / b.energyCapacity));
+
             if(targets.length > 0)
             {
                 // check if my current target is 
@@ -54,7 +57,7 @@ module.exports =
                 if(target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
                 {
                     creep.moveTo(target, { visualizePathStyle: { stroke: '#ffffff' } });
-                    creep.say(target.name);
+                    // creep.say(target.name);
                 }
             }
         }
