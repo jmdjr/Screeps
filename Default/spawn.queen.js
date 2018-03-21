@@ -77,11 +77,11 @@ var CheckAndSpawnLimit = function (st) {
     }
 }
 
-var SpawnerSay = function(text) {
+var SpawnerSay = function(text, line) {
     Spawner().room.visual.text(
         text,
         Spawner().pos.x + 1,
-        Spawner().pos.y,
+        Spawner().pos.y + line,
         { align: 'left', opacity: 0.8 })
 }
 
@@ -115,18 +115,19 @@ module.exports =
                     stem.suicide();
                 }
             }
+
             // plenty of screeps, ensure that we reach limits.
-            CheckAndSpawnMin(ScreepType.harvester);
+            CheckAndSpawnLimit(ScreepType.harvester);
             CheckAndSpawnLimit(ScreepType.builder);
-            CheckAndSpawnMin(ScreepType.hauler);
+            CheckAndSpawnLimit(ScreepType.hauler);
         }
 
         if (Spawner().spawning) {
             var spawningCreep = Game.creeps[Spawner().spawning.name];
-            SpawnerSay(spawningCreep.memory.role);
+            SpawnerSay(spawningCreep.memory.role, 1);
         }
         
         var roomEnergy = Game.rooms[Spawner().room.name].energyAvailable;
-        SpawnerSay(Spawner().room.name + ' energy: ' + roomEnergy);
+        SpawnerSay(Spawner().room.name + ' energy: ' + roomEnergy, 0);
     }
 }
