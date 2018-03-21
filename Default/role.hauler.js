@@ -31,8 +31,9 @@ module.exports =
                 }
             });
 
-            var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role != 'hauler' && c.energy < c.energyCapacity });
-
+            var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role == 'builder'});
+            console.log(hungryCreeps.join(', '));
+            
             targets = targets.concat(hungryCreeps);
 
             targets.sort((a, b) => (a.energy / a.energyCapacity) - (b.energy / b.energyCapacity));

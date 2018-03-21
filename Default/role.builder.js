@@ -6,10 +6,11 @@ module.exports = {
             if(!creep.memory.building) {
                 var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 
-                if(targets.length) {
+                if(targets.length > 0) {
+                    targets.sort((ta, tb) => (ta.progress / ta.progressTotal) - (tb.progress / tb.progressTotal) );
                     creep.memory.target = targets[0].id;
 
-                    target = Game.getObjectById(creep.memory.target.id);
+                    target = Game.getObjectById(creep.memory.target);
 
                     if(creep.build(target) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#ffffff'}});
@@ -23,7 +24,7 @@ module.exports = {
             else
             {
                 var target = Game.getObjectById(creep.memory.target.id);
-                
+
                 if(target == null 
                     || target.progress == target.progressTotal) 
                 {
