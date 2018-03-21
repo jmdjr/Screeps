@@ -43,6 +43,7 @@ module.exports =
                 if(creep.transfer(creep.memory.target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
                 {
                     creep.moveTo(creep.memory.target, { visualizePathStyle: { stroke: '#ffffff' } });
+                    creep.say(creep.memory.target.name);
                 }
             }
         }
