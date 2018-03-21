@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------------------------------
 // role.upgrader
-var roleUpgrader = 
+module.exports = 
 {
     run: function(creep) {
 
@@ -26,5 +26,3 @@ var roleUpgrader =
         }
     }
 };
-    
-module.exports = roleUpgrader;

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------------------------------
 // role.harvester
-var roleHarvester = 
+module.exports = 
 {
     run: function(creep) 
     {
@@ -18,9 +18,7 @@ var roleHarvester =
             {
                 filter: (structure) => 
                 {
-                    return (structure.structureType == STRUCTURE_EXTENSION 
-                            || structure.structureType == STRUCTURE_TOWER
-                            || structure.structureType == STRUCTURE_SPAWN) 
+                    return (structure.structureType == STRUCTURE_SPAWN) 
                         && structure.energy < structure.energyCapacity;
                 }
             });
@@ -33,7 +31,7 @@ var roleHarvester =
                 }
             }
         }
+
+
     }
 };
-    
-module.exports = roleHarvester;

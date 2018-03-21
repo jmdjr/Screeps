@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------------------------------
 // role.hauler
-var role = 
+module.exports = 
 {
     run: function(creep) 
     {
@@ -35,5 +35,3 @@ var role =
         }
     }
 };
-    
-module.exports = role;
