@@ -89,7 +89,7 @@ module.exports =
         else {
             // suicide all stems.
             var stems = filterForScreeps(ScreepType.stem);
-
+            console.log(stems.join(", "));
             for(var stem in stems) 
             {
                 Game.creeps[stem].suicide();
