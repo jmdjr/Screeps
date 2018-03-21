@@ -27,7 +27,8 @@ module.exports =
                             || structure.structureType == STRUCTURE_SPAWN
                             || structure.structureType == STRUCTURE_STORAGE
                             || structure.structureType == STRUCTURE_CONTAINER) 
-                        && structure.energy < structure.energyCapacity;
+                        && (structure.energy < structure.energyCapacity 
+                        || c.store.energy < c.store.energyCapacity);
                 }
             });
 
@@ -35,7 +36,7 @@ module.exports =
             {
                 filter: (c) => 
                 {
-                    return c.memory.role != 'hauler';
+                    return c.memory.role != 'hauler' && (c.carry.energy < c.carry.energyCapacity);
                 }
 
             });
