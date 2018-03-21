@@ -31,7 +31,14 @@ module.exports =
                 }
             });
 
-            var hungryCreeps = _.filter(Game.creeps, (c) => c.memory.role !== 'hauler' && c.energy < c.energyCapacity);
+            var hungryCreeps = creep.room.find(FIND_MY_CREEPS, 
+            {
+                filter: (c) => 
+                {
+                    return c.memory.role != 'hauler';
+                }
+
+            });
             
             targets = targets.concat(hungryCreeps);
 
@@ -57,7 +64,7 @@ module.exports =
                 if(target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
                 {
                     creep.moveTo(target, { visualizePathStyle: { stroke: '#ffffff' } });
-                    // creep.say(target.name);
+                    creep.say(target.name);
                 }
             }
         }
