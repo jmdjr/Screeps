@@ -68,6 +68,14 @@ var CheckAndSpawnMin = function (st) {
     }
 }
 
+var SpawnerSay = function(text) {
+    Spawner().room.visual.text(
+        text,
+        Spawner().pos.x + 1,
+        Spawner().pos.y,
+        { align: 'left', opacity: 0.8 })
+}
+
 module.exports =
 {
     run: function () {
@@ -103,11 +111,10 @@ module.exports =
 
         if (Spawner().spawning) {
             var spawningCreep = Game.creeps[Spawner().spawning.name];
-            Spawner().room.visual.text(
-                spawningCreep.memory.role,
-                Spawner().pos.x + 1,
-                Spawner().pos.y,
-                { align: 'left', opacity: 0.8 });
+            SpawnerSay(spawningCreep.memory.role);
         }
+        
+        var roomEnergy = Game.rooms[Spawner().room.name].energyAvailable;
+        SpawnerSay(Spawner().room.name + ' energy: ' + roomEnergy);
     }
 }
