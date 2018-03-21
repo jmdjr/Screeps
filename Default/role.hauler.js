@@ -25,8 +25,6 @@ module.exports =
                 }
             });
 
-            targets = targets.concat(creep.room.find(FIND_CONSTRUCTION_SITES));
-
             if(targets.length > 0)
             {
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
