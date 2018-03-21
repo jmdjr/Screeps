@@ -92,7 +92,7 @@ module.exports =
 
             for(var stem in stems) 
             {
-                stem.suicide();
+                Game.creeps[stem].suicide();
             }
             // plenty of screeps, ensure that we reach limits.
         }
