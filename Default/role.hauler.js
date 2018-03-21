@@ -28,7 +28,7 @@ module.exports =
                             || structure.structureType == STRUCTURE_STORAGE
                             || structure.structureType == STRUCTURE_CONTAINER) 
                         && (structure.energy < structure.energyCapacity 
-                        || (structure.store && structure.store.energy < structure.store.energyCapacity);
+                        || (structure.store && structure.store.energy < structure.store.energyCapacity));
                 }
             });
 
@@ -43,7 +43,7 @@ module.exports =
             
             targets = targets.concat(hungryCreeps);
 
-            targets.foreach(t => 
+            targets.forEach(t => 
             {
                 if(t.carry && t.carry.energy) 
                 {
