@@ -31,9 +31,18 @@ module.exports =
 
             if(targets.length > 0)
             {
-                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
+                for(var target in targets) 
                 {
-                    creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                    if(target.energy < energyCapacity) 
+                    {
+                        creep.memory.target = target;
+                        break;
+                    }
+                }
+
+                if(creep.transfer(creep.memory.target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
+                {
+                    creep.moveTo(creep.memory.target, { visualizePathStyle: { stroke: '#ffffff' } });
                 }
             }
         }
