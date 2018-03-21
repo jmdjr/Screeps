@@ -28,7 +28,7 @@ module.exports =
                             || structure.structureType == STRUCTURE_STORAGE
                             || structure.structureType == STRUCTURE_CONTAINER) 
                         && (structure.energy < structure.energyCapacity 
-                        || c.store.energy < c.store.energyCapacity);
+                        || (structure.store && structure.store.energy < structure.store.energyCapacity);
                 }
             });
 
@@ -42,6 +42,21 @@ module.exports =
             });
             
             targets = targets.concat(hungryCreeps);
+
+            targets.foreach(t => 
+            {
+                if(t.carry && t.carry.energy) 
+                {
+                    t.energy = t.carry.energy;
+                    t.energyCapacity = t.carry.energyCapacity;
+                }
+                
+                if(t.store && t.store.energy)
+                {
+                    t.energy = t.store.energy;
+                    t.energyCapacity = t.store.energyCapacity;
+                }
+            });
 
             targets.sort((a, b) => (b.energy / b.energyCapacity) - (a.energy / a.energyCapacity));
 
