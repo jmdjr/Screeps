@@ -51,7 +51,7 @@ var spawnScreep = function(st, name) {
 }
 
 var filterForScreeps = function(st) {
-    return _.filter(Game.creeps, (creep) => creep.memory.role == st.memory.role);
+    return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
 }
 
 var CheckMins = function(st) 
@@ -76,8 +76,8 @@ var spawnQueen =
     run: function() 
     {
         var harvesters = filterForScreeps(ScreepType.harvester);
-        var builders = filterForScreeps(ScreepType.builders);
-        var haulers = filterForScreeps(ScreepType.haulers);
+        var builders = filterForScreeps(ScreepType.builder);
+        var haulers = filterForScreeps(ScreepType.hauler);
 
         //------------------------------------------------------------
         // Ensure minimums are met...
