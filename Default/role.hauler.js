@@ -11,6 +11,10 @@ module.exports =
             {
                 creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
             }
+            else
+            {
+                creep.say("grabbing energy");
+            }
         }
         else 
         {
@@ -25,7 +29,7 @@ module.exports =
                 }
             });
 
-            var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role == 'builder' });
+            var hungryCreeps = _.filter(Game.creeps, (c) => { c.memory.role == 'builder' && c.energy < c.energyCapacity });
 
             targets = targets.concat(hungryCreeps);
 
@@ -33,7 +37,7 @@ module.exports =
             {
                 for(var target in targets) 
                 {
-                    if(target.energy < energyCapacity) 
+                    if(target.energy < target.energyCapacity) 
                     {
                         creep.memory.target = target;
                         break;
