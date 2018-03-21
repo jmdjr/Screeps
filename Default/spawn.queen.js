@@ -58,3 +58,5 @@ var spawnQueen =
     
     }
 }
+
+module.exports = spawnQueen;
