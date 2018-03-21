@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------------------------------
-// role.hauler
-var role = 
+// role.harvester
+var roleHarvester = 
 {
     run: function(creep) 
     {
@@ -36,4 +36,4 @@ var role =
     }
 };
     
-module.exports = role;
+module.exports = roleHarvester;
