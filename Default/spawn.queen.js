@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------------------------------
 // spawnQueen
-var CreepType = require('CreepType');
 var cUtility = require('creepUtility');
+var CreepType = cUtility.CreepType;
 
 var Spawner = function () { return Game.spawns['queen']; }
 
