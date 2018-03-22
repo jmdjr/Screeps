@@ -122,7 +122,12 @@ module.exports = {
     {
         return _.sortBy(targets, s => creep.pos.getRangeTo(s));
     },
-    MoveToDo: function(creep, action, target, args, visualize) 
+
+    // Move to Do: moves the creep towards the target until it can perform the action.
+    //  creep: the creep to move
+    //  action: the action to perform (please use delegate which returns the error message)
+    // 
+    MoveToDo: function(creep, action, target, visualize) 
     {
         var show = visualize ? {visualizePathStyle: {stroke: '#ffaa00'}} : {};
 
