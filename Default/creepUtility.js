@@ -2,7 +2,7 @@
 var CreepType = [];
 var name = '';
 
-name = "upgrader";
+name = "repairer";
 CreepType.push(name);
 CreepType[name] = 
 {
@@ -13,7 +13,7 @@ CreepType[name] =
     memory: { role: name, target: null }
 };
 
-name = "repairer";
+name = "upgrader";
 CreepType.push(name);
 CreepType[name] = 
 {
@@ -74,5 +74,6 @@ module.exports = {
         return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
     },
 
-    CreepType: CreepType
+    CreepType: CreepType,
+    CreepOrder: ['stem', 'harvester', 'hauler', 'builder', 'upgrader', 'repairer' ]
 }
