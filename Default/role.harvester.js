@@ -1,33 +1,44 @@
 //------------------------------------------------------------------------------------------------------
 // role.harvester
+var cUtility = require("creepUtility");
+var CreepType = cUtility.CreepType;
 
-var SourcesNotHarvested = function(creep) 
+var sources = [];
+var takenSources = [];
+var perSource = 2;
+
+var SourcesNotAtLimit = function(creep) 
 {
-    var sources = Array.from(creep.room.find(FIND_SOURCES), c => c.id);
-    var taken = Array.from(_.filter(Game.creeps, c => c.memory.role === 'harvester'), c => c.memory.target);
-    return sources.filter(id => !taken.includes(id));
+    var s = Array.from(sources, c => c.id);
+    return s.filter(id => typeof takenSources[id] == 'undefined' || takenSources[id] <= perSource);
 }
 
 module.exports = 
 {
     run: function(creep) 
     {
-        if(creep.memory.target == null)
+        if(sources == []) 
         {
-            creep.say('looking for target');
-            var availables = SourcesNotHarvested(creep);
+            sources = _.toArray(creep.room.find(FIND_SOURCES));
+        }
 
-            if(availables.length > 0)
+        var availables = SourcesNotAtLimit(creep);
+
+        if(availables.length > 0)
+        {
+            creep.memory.target = cUtility.FindClosest(creep, availables);
+
+            if(typeof takenSources[creep.memory.target] === 'undefined') 
             {
-                creep.memory.target = availables[0];
-                creep.say(creep.memory.target);
+                takenSources[creep.memory.target] = 1;
+            }
+            else 
+            {
+                takenSources[creep.memory.target] += 1;
             }
         }
 
         var target = Game.getObjectById(creep.memory.target);
-        if(target != null && creep.harvest(target) == ERR_NOT_IN_RANGE) 
-        {
-            creep.moveTo(target, {visualizePathStyle: {stroke: '#ffaa00'}});
-        }
+        cUtility.MoveToDo(creep, target, true);
     }
 };

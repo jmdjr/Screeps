@@ -89,6 +89,10 @@ module.exports = {
     CreepOrder: ['stem', 'harvester', 'hauler', 'roadpaver', 'builder', 'upgrader', 'repairer' ],
     GrabSomeEnergy: function (creep) 
     {
+        return this.GrabFromSources(creep) ||  this.GrabFromSources(creep);
+    },
+
+    GrabFromDroppedEnergy: function (creep) {
         var sources = creep.room.find(FIND_DROPPED_RESOURCES);
         if(sources.length > 0)
         {
@@ -99,8 +103,10 @@ module.exports = {
             }
             return true;
         }
+    },
 
-        sources = creep.room.find(FIND_SOURCES);
+    GrabFromSources: function(creep) {
+        var sources = creep.room.find(FIND_SOURCES);
         if(sources.length > 0) 
         {
             var targets = this.FindClosest(creep, sources);
@@ -110,11 +116,19 @@ module.exports = {
             }
             return true;
         }
-
         return false;
     },
     FindClosest: function(creep, targets) 
     {
         return _.sortBy(targets, s => creep.pos.getRangeTo(s));
+    },
+    MoveToDo: function(creep, action, target, visualize) 
+    {
+        var show = visualize ? {visualizePathStyle: {stroke: '#ffaa00'}} : {};
+
+        if(target != null && action.call(creep, target) == ERR_NOT_IN_RANGE) 
+        {
+            creep.moveTo(target, show);
+        }
     }
 }
