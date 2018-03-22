@@ -40,8 +40,8 @@ CreepType.push(name);
 CreepType[name] = 
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-    limit: 3,
-    min: 2,
+    limit: 4,
+    min: 1,
     name: name,
     memory: { role: name, target: null }
 };
@@ -51,8 +51,8 @@ CreepType.push(name);
 CreepType[name] = 
 {
     signature: [WORK, WORK, MOVE, MOVE],
-    limit: 2,
-    min: 1,
+    limit: 4,
+    min: 2,
     name: name,
     memory: { role: name, target: null }
 };
@@ -63,7 +63,7 @@ CreepType[name] =
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 3,
-    min: 2,
+    min: 1,
     name: name,
     memory: { role: name, target: null }
 };
