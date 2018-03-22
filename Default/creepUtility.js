@@ -35,13 +35,24 @@ CreepType[name] =
     memory: { role: name, target: null, building: false }
 };
 
+name = "roadpaver";
+CreepType.push(name);
+CreepType[name] = 
+{
+    signature: [CARRY, WORK, MOVE],
+    limit: 3,
+    min: 1,
+    name: name,
+    memory: { role: name, target: null }
+};
+
 name = "hauler";
 CreepType.push(name);
 CreepType[name] = 
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 4,
-    min: 1,
+    min: 2,
     name: name,
     memory: { role: name, target: null }
 };
@@ -75,13 +86,13 @@ module.exports = {
     },
 
     CreepType: CreepType,
-    CreepOrder: ['stem', 'harvester', 'hauler', 'builder', 'upgrader', 'repairer' ],
+    CreepOrder: ['stem', 'harvester', 'hauler', 'roadpaver', 'builder', 'upgrader', 'repairer' ],
     GrabSomeEnergy: function (creep) 
     {
         var sources = creep.room.find(FIND_DROPPED_RESOURCES);
         if(sources.length > 0)
         {
-            var targets = FindClosest(creep, sources);
+            var targets = this.FindClosest(creep, sources);
             if(creep.pickup(targets[0]) == ERR_NOT_IN_RANGE) 
             {
                 creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
@@ -92,7 +103,7 @@ module.exports = {
         sources = creep.room.find(FIND_SOURCES);
         if(sources.length > 0) 
         {
-            var targets = FindClosest(creep, sources);
+            var targets = this.FindClosest(creep, sources);
             if(creep.harvest(targets[0]))
             {
                 creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
