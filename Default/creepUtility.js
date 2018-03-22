@@ -103,6 +103,7 @@ module.exports = {
             }
             return true;
         }
+        return false;
     },
 
     GrabFromSources: function(creep) {
@@ -131,7 +132,7 @@ module.exports = {
     {
         var show = visualize ? {visualizePathStyle: {stroke: '#ffaa00'}} : {};
 
-        if(target != null && action.call(creep, target) == ERR_NOT_IN_RANGE) 
+        if(target != null && action(creep, target) == ERR_NOT_IN_RANGE) 
         {
             creep.moveTo(target, show);
         }
