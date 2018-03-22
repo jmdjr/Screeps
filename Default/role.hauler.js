@@ -13,7 +13,7 @@ module.exports =
             }
             else
             {
-                creep.say("grabbing energy");
+                creep.say("grabbing");
             }
         }
         else 

@@ -1,7 +1,6 @@
 //------------------------------------------------------------------------------------------------------
 // spawnQueen
-
-var ScreepType = require('ScreepType');
+var CreepType = require('CreepType');
 var cUtility = require('creepUtility');
 
 var Spawner = function () { return Game.spawns['queen']; }
@@ -51,27 +50,29 @@ var SpawnerSay = function(text, line) {
         { align: 'left', opacity: 0.8 })
 }
 
+
 module.exports =
 {
     run: function () {
-        var harvesters = cUtility.FilterCreeps(ScreepType.harvester);
-        var builders = cUtility.FilterCreeps(ScreepType.builder);
-        var haulers = cUtility.FilterCreeps(ScreepType.hauler);
+        var harvesters = cUtility.FilterCreeps(CreepType.harvester);
+        var builders = cUtility.FilterCreeps(CreepType.builder);
+        var haulers = cUtility.FilterCreeps(CreepType.hauler);
 
         //------------------------------------------------------------
         // Ensure minimums are met...
-        if (CheckMins(ScreepType.harvester)
-            || CheckMins(ScreepType.builder)
-            || CheckMins(ScreepType.hauler)) 
+        if (CheckMins(CreepType.harvester)
+            || CheckMins(CreepType.builder)
+            || CheckMins(CreepType.hauler)) 
         {
-            CheckAndSpawnMin(ScreepType.stem);
-            CheckAndSpawnMin(ScreepType.harvester);
-            CheckAndSpawnMin(ScreepType.hauler);
-            CheckAndSpawnMin(ScreepType.builder);
+            for(var types = 0; types < CreepType.length; types += 1)
+            {
+                CheckAndSpawnMin(CreepType[CreepType[types]]);
+            }
         }
         else {
             // suicide all stems.
-            var stems = FilterCreeps(ScreepType.stem);
+            var stems = cUtility.FilterCreeps(CreepType.stem);
+
             for(var stem in stems) 
             {
                 var stem = Game.creeps[stem];
@@ -82,9 +83,13 @@ module.exports =
             }
 
             // plenty of screeps, ensure that we reach limits.
-            CheckAndSpawnLimit(ScreepType.harvester);
-            CheckAndSpawnLimit(ScreepType.builder);
-            CheckAndSpawnLimit(ScreepType.hauler);
+
+            
+            for(var types = 0; types < CreepType.length; types += 1)
+            {
+                console.log("type: " + CreepType[CreepType[types]]);
+                CheckAndSpawnMin(CreepType[CreepType[types]]);
+            }
         }
 
         if (Spawner().spawning) {
