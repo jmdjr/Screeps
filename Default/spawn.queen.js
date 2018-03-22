@@ -30,7 +30,10 @@ var CheckAndSpawnMin = function (st) {
 
     if (screeps.length < st.min) {
         spawnScreep(st, name);
+        return true;
     }
+
+    return false;
 }
 
 var CheckAndSpawnLimit = function (st) {
@@ -50,6 +53,7 @@ var SpawnerSay = function(text, line) {
         { align: 'left', opacity: 0.8 })
 }
 
+var spawnTypeId = 0;
 
 module.exports =
 {
@@ -64,9 +68,12 @@ module.exports =
             || CheckMins(CreepType.builder)
             || CheckMins(CreepType.hauler)) 
         {
-            for(var types = 0; types < CreepOrder.length; types += 1)
+            if(spawnTypeId < CreepOrder.length)
             {
-                CheckAndSpawnMin(CreepType[CreepOrder[types]]);
+                if(!CheckAndSpawnMin(CreepType[CreepOrder[spawnTypeId]]))
+                {
+                    spawnTypeId += 1;
+                }
             }
         }
         else {
