@@ -2,6 +2,7 @@
 // spawnQueen
 var cUtility = require('creepUtility');
 var CreepType = cUtility.CreepType;
+var CreepOrder = cUtility.CreepOrder;
 
 var Spawner = function () { return Game.spawns['Spawn1']; }
 
@@ -63,9 +64,9 @@ module.exports =
             || CheckMins(CreepType.builder)
             || CheckMins(CreepType.hauler)) 
         {
-            for(var types = 0; types < CreepType.length; types += 1)
+            for(var types = 0; types < CreepOrder.length; types += 1)
             {
-                CheckAndSpawnMin(CreepType[CreepType[types]]);
+                CheckAndSpawnMin(CreepType[CreepOrder[types]]);
             }
         }
         else {

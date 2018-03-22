@@ -17,7 +17,7 @@ name = "upgrader";
 CreepType.push(name);
 CreepType[name] = 
 {
-    signature: [CARRY, WORK, MOVE],
+    signature: [CARRY, CARRY, CARRY, WORK, MOVE],
     limit: 3,
     min: 1,
     name: name,
