@@ -23,7 +23,7 @@ module.exports =
 
             if(targets.length > 0)
             {
-                cUtility.MoveToDo(creep, (c, t) => { return c.transfer(t, RESOURCE_ENERGY); }, targets[0], false);
+                cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), targets[0], false);
             }
         }
     }

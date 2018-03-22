@@ -86,10 +86,10 @@ module.exports = {
     },
 
     CreepType: CreepType,
-    CreepOrder: ['stem', 'harvester', 'hauler', 'roadpaver', 'builder', 'upgrader', 'repairer' ],
+    CreepOrder: ['stem', 'harvester', 'hauler', 'upgrader', 'roadpaver', 'builder',  'repairer' ],
     GrabSomeEnergy: function (creep) 
     {
-        return this.GrabFromSources(creep) ||  this.GrabFromSources(creep);
+        return this.GrabFromDroppedEnergy(creep) ||  this.GrabFromSources(creep);
     },
 
     GrabFromDroppedEnergy: function (creep) {

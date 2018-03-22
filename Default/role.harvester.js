@@ -38,6 +38,6 @@ module.exports =
         }
 
         var target = Game.getObjectById(creep.memory.target);
-        cUtility.MoveToDo(creep, creep.harvest.call, target, true);
+        cUtility.MoveToDo(creep, (c, t) => c.harvest(t), target, true);
     }
 };
