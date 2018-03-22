@@ -52,7 +52,7 @@ CreepType[name] =
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 4,
-    min: 2,
+    min: 1,
     name: name,
     memory: { role: name, target: null }
 };
