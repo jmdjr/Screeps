@@ -1,27 +1,8 @@
 // utility functions for accessing, assessing and parsing creeps
 var CreepType = [];
+var name = '';
 
-var name = "stem";
-CreepType.push(name);
-CreepType[name] = 
-{
-    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-    limit: 3,
-    min: 2,
-    name: name,
-    memory: { role: name, target: null }
-};
 
-name = "hauler";
-CreepType.push(name);
-CreepType[name] = 
-{
-    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-    limit: 3,
-    min: 2,
-    name: name,
-    memory: { role: name, target: null }
-};
 
 name = "upgrader";
 CreepType.push(name);
@@ -56,6 +37,17 @@ CreepType[name] =
     memory: { role: name, target: null, building: false }
 };
 
+name = "hauler";
+CreepType.push(name);
+CreepType[name] = 
+{
+    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
+    limit: 3,
+    min: 2,
+    name: name,
+    memory: { role: name, target: null }
+};
+
 name = "harvester";
 CreepType.push(name);
 CreepType[name] = 
@@ -67,10 +59,22 @@ CreepType[name] =
     memory: { role: name, target: null }
 };
 
+name = "stem";
+CreepType.push(name);
+CreepType[name] = 
+{
+    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
+    limit: 3,
+    min: 2,
+    name: name,
+    memory: { role: name, target: null }
+};
+
+
 module.exports = {
     FilterCreeps: function (st) {
         return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
     },
-    CreepType: CreepType,
-    startCreeps: ["harvester", "hauler", "builder"]
+    
+    CreepType: CreepType
 }
