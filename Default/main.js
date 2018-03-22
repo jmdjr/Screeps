@@ -1,6 +1,7 @@
 
 var roleRunners = require('roleRunner');
 var spawnQueen = require('spawn.queen');
+// var sUtility = require('structureUtility');
 
 module.exports.loop = function () {
     spawnQueen.run();

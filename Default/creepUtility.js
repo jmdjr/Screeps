@@ -83,5 +83,9 @@ module.exports = {
         {
             creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
         }
+    },
+    FindClosestSource: function(creep) 
+    {
+        return _.sortBy(sources, s => creep.pos.getRangeTo(s));
     }
 }
