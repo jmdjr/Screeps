@@ -86,7 +86,6 @@ var spawnScreep = function (st, name) {
 }
 
 var filterForScreeps = function (st) {
-    console.log("filter: " + st);
     return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
 }
 
