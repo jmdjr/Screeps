@@ -24,7 +24,7 @@ ScreepType[name] =
     memory: { role: name, target: null }
 };
 
-name = "upgreader";
+name = "upgrader";
 ScreepType.push(name);
 ScreepType[name] = 
 {
