@@ -20,7 +20,7 @@ module.exports =
 
         var availables = SourcesNotAtLimit(creep);
 
-        if(availables.length > 0)
+        if(availables.length > 0 && creep.memory.target == null)
         {
             availables = Array.from(availables, a => Game.getObjectById(a));
             var target = cUtility.FindClosest(creep, availables)[0];
