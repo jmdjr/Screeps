@@ -81,9 +81,10 @@ module.exports = {
         var sources = creep.room.find(FIND_DROPPED_RESOURCES);
         if(sources.length > 0)
         {
-            if(creep.pickup(sources[0]) == ERR_NOT_IN_RANGE) 
+            var targets = FindClosest(creep, sources);
+            if(creep.pickup(targets[0]) == ERR_NOT_IN_RANGE) 
             {
-                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
             }
             return true;
         }
@@ -91,17 +92,18 @@ module.exports = {
         sources = creep.room.find(FIND_SOURCES);
         if(sources.length > 0) 
         {
-            if(creep.harvest(sources[0]))
+            var targets = FindClosest(creep, sources);
+            if(creep.harvest(targets[0]))
             {
-                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+                creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
             }
             return true;
         }
 
         return false;
     },
-    FindClosestSource: function(creep) 
+    FindClosest: function(creep, targets) 
     {
-        return _.sortBy(sources, s => creep.pos.getRangeTo(s));
+        return _.sortBy(targets, s => creep.pos.getRangeTo(s));
     }
 }
