@@ -86,6 +86,7 @@ var spawnScreep = function (st, name) {
 }
 
 var filterForScreeps = function (st) {
+    console.log("filter: " + st);
     return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
 }
 
@@ -120,6 +121,7 @@ var SpawnerSay = function(text, line) {
         { align: 'left', opacity: 0.8 })
 }
 
+
 module.exports =
 {
     run: function () {
@@ -141,6 +143,7 @@ module.exports =
         else {
             // suicide all stems.
             var stems = filterForScreeps(ScreepType.stem);
+            
             for(var stem in stems) 
             {
                 var stem = Game.creeps[stem];
@@ -152,9 +155,11 @@ module.exports =
 
             // plenty of screeps, ensure that we reach limits.
 
-            for(var types in ScreepType)
+            
+            for(var types = 0; types < ScreepType.length; types += 1)
             {
-                CheckAndSpawnMin(ScreepType[types]);
+                console.log("type: " + ScreepType[ScreepType[types]]);
+                CheckAndSpawnMin(ScreepType[ScreepType[types]]);
             }
         }
 
