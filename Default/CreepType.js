@@ -68,5 +68,5 @@ CreepType[name] =
 
 module.exports = {
     CreepType: CreepType,
-    startCreeps: ["harvester", "hauler", "builder"];
+    startCreeps: ["harvester", "hauler", "builder"]
 }
