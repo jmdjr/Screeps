@@ -17,6 +17,22 @@ var ScreepType = {
         name: "hauler",
         memory: { role: 'hauler', target: null }
     },
+    
+    upgreader: {
+        signature: [CARRY, WORK, MOVE],
+        limit: 3,
+        min: 1,
+        name: "upgreader",
+        memory: { role: 'upgreader', target: null }
+    },
+
+    repairer: {
+        signature: [CARRY, WORK, MOVE],
+        limit: 3,
+        min: 1,
+        name: "repairer",
+        memory: { role: 'repairer', target: null }
+    },
 
     builder: {
         signature: [CARRY, WORK, WORK, MOVE],
@@ -33,6 +49,15 @@ var ScreepType = {
         memory: { role: 'harvester', target: null }
     }
 }
+
+var startScreeps = ["harvester", "hauler", "builder"];
+
+ScreepType.push("stem");
+ScreepType.push("hauler");
+ScreepType.push("upgreader");
+ScreepType.push("repairer");
+ScreepType.push("builder");
+ScreepType.push("harvester");
 
 var Spawner = function () { return Game.spawns['queen']; }
 
@@ -97,10 +122,10 @@ module.exports =
             || CheckMins(ScreepType.builder)
             || CheckMins(ScreepType.hauler)) 
         {
-            CheckAndSpawnMin(ScreepType.stem);
-            CheckAndSpawnMin(ScreepType.harvester);
-            CheckAndSpawnMin(ScreepType.hauler);
-            CheckAndSpawnMin(ScreepType.builder);
+            for(var types in ScreepType)
+            {
+                CheckAndSpawnMin(ScreepType[types]);
+            }
         }
         else {
             // suicide all stems.
@@ -115,9 +140,11 @@ module.exports =
             }
 
             // plenty of screeps, ensure that we reach limits.
-            CheckAndSpawnLimit(ScreepType.harvester);
-            CheckAndSpawnLimit(ScreepType.builder);
-            CheckAndSpawnLimit(ScreepType.hauler);
+            
+            for(var types in ScreepType)
+            {
+                CheckAndSpawnMin(ScreepType[types]);
+            }
         }
 
         if (Spawner().spawning) {
