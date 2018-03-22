@@ -1,9 +1,9 @@
 var roleRunners = {};
 var cUtility = require('creepUtility');
 
-for(var names in cUtility.CreepOrder)
+for(var name in cUtility.CreepOrder)
 {
-    roleRunners[name] = require('role.' + name);
+    roleRunners[cUtility.CreepOrder[name]] = require('role.' + cUtility.CreepOrder[name]);
 }
 
 module.exports = roleRunners;
