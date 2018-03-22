@@ -135,9 +135,9 @@ module.exports =
             || CheckMins(ScreepType.builder)
             || CheckMins(ScreepType.hauler)) 
         {
-            for(var types in ScreepType)
+            for(var types = 0; types < ScreepType.length; types += 1)
             {
-                CheckAndSpawnMin(ScreepType[types]);
+                CheckAndSpawnMin(ScreepType[ScreepType[types]]);
             }
         }
         else {
