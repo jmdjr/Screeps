@@ -1,56 +1,6 @@
 //------------------------------------------------------------------------------------------------------
 // spawnQueen
-
-var ScreepType = {
-    stem: {
-        signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-        limit: 3,
-        min: 2,
-        name: "stem",
-        memory: { role: 'stem', target: null }
-    },
-
-    hauler: {
-        signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-        limit: 3,
-        min: 2,
-        name: "hauler",
-        memory: { role: 'hauler', target: null }
-    },
-    
-    upgreader: {
-        signature: [CARRY, WORK, MOVE],
-        limit: 3,
-        min: 1,
-        name: "upgreader",
-        memory: { role: 'upgreader', target: null }
-    },
-
-    repairer: {
-        signature: [CARRY, WORK, MOVE],
-        limit: 3,
-        min: 1,
-        name: "repairer",
-        memory: { role: 'repairer', target: null }
-    },
-
-    builder: {
-        signature: [CARRY, WORK, WORK, MOVE],
-        limit: 3,
-        min: 1,
-        name: "builder",
-        memory: { role: 'builder', building: false, target: null }
-    },
-    harvester: {
-        signature: [WORK, WORK, MOVE, MOVE],
-        limit: 2,
-        min: 1,
-        name: "harvester",
-        memory: { role: 'harvester', target: null }
-    }
-}
-
-var startScreeps = ["harvester", "hauler", "builder"];
+var ScreepType = [];
 
 ScreepType.push("stem");
 ScreepType.push("hauler");
@@ -58,6 +8,62 @@ ScreepType.push("upgreader");
 ScreepType.push("repairer");
 ScreepType.push("builder");
 ScreepType.push("harvester");
+
+ScreepType["stem"] = 
+{
+    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
+    limit: 3,
+    min: 2,
+    name: "stem",
+    memory: { role: 'stem', target: null }
+};
+
+ScreepType["hauler"] = 
+{
+    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
+    limit: 3,
+    min: 2,
+    name: "hauler",
+    memory: { role: 'hauler', target: null }
+};
+
+ScreepType["upgreader"] = 
+{
+    signature: [CARRY, WORK, MOVE],
+    limit: 3,
+    min: 1,
+    name: "upgreader",
+    memory: { role: 'upgreader', target: null }
+};
+
+ScreepType["repairer"] =
+{
+    signature: [CARRY, WORK, MOVE],
+    limit: 3,
+    min: 1,
+    name: "repairer",
+    memory: { role: 'repairer', target: null }
+};
+
+ScreepType["builder"] = 
+{
+    signature: [CARRY, WORK, WORK, MOVE],
+    limit: 3,
+    min: 1,
+    name: "builder",
+    memory: { role: 'builder', building: false, target: null }
+};
+
+ScreepType["harvester"] = 
+{
+    signature: [WORK, WORK, MOVE, MOVE],
+    limit: 2,
+    min: 1,
+    name: "harvester",
+    memory: { role: 'harvester', target: null }
+};
+
+var startScreeps = ["harvester", "hauler", "builder"];
 
 var Spawner = function () { return Game.spawns['queen']; }
 
@@ -140,7 +146,7 @@ module.exports =
             }
 
             // plenty of screeps, ensure that we reach limits.
-            
+
             for(var types in ScreepType)
             {
                 CheckAndSpawnMin(ScreepType[types]);
