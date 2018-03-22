@@ -3,7 +3,7 @@
 var cUtility = require('creepUtility');
 var CreepType = cUtility.CreepType;
 
-var Spawner = function () { return Game.spawns['queen']; }
+var Spawner = function () { return Game.spawns['Spawn1']; }
 
 var checkScreep = function (st, name) {
     return Spawner().spawnCreep(st.signature, name, { memory: st.memory, dryRun: true });

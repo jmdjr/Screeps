@@ -2,8 +2,6 @@
 var CreepType = [];
 var name = '';
 
-
-
 name = "upgrader";
 CreepType.push(name);
 CreepType[name] = 
@@ -75,6 +73,6 @@ module.exports = {
     FilterCreeps: function (st) {
         return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
     },
-    
+
     CreepType: CreepType
 }
