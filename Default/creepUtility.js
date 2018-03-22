@@ -79,10 +79,26 @@ module.exports = {
     GrabSomeEnergy: function (creep) 
     {
         var sources = creep.room.find(FIND_DROPPED_RESOURCES);
-        if(creep.pickup(sources[0]) == ERR_NOT_IN_RANGE) 
+        if(sources.length > 0)
         {
-            creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+            if(creep.pickup(sources[0]) == ERR_NOT_IN_RANGE) 
+            {
+                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+            }
+            return true;
         }
+
+        sources = creep.room.find(FIND_SOURCES);
+        if(sources.length > 0) 
+        {
+            if(creep.harvest(sources[0]))
+            {
+                creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+            }
+            return true;
+        }
+
+        return false;
     },
     FindClosestSource: function(creep) 
     {
