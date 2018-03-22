@@ -2,65 +2,70 @@
 // spawnQueen
 var ScreepType = [];
 
-ScreepType.push("stem");
-ScreepType.push("hauler");
-ScreepType.push("upgreader");
-ScreepType.push("repairer");
-ScreepType.push("builder");
-ScreepType.push("harvester");
-
-ScreepType["stem"] = 
+var name = "stem";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 3,
     min: 2,
-    name: "stem",
-    memory: { role: 'stem', target: null }
+    name: name,
+    memory: { role: name, target: null }
 };
 
-ScreepType["hauler"] = 
+name = "hauler";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 3,
     min: 2,
-    name: "hauler",
-    memory: { role: 'hauler', target: null }
+    name: name,
+    memory: { role: name, target: null }
 };
 
-ScreepType["upgreader"] = 
+name = "upgreader";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [CARRY, WORK, MOVE],
     limit: 3,
     min: 1,
-    name: "upgreader",
-    memory: { role: 'upgreader', target: null }
+    name: name,
+    memory: { role: name, target: null }
 };
 
-ScreepType["repairer"] =
+name = "repairer";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [CARRY, WORK, MOVE],
     limit: 3,
     min: 1,
-    name: "repairer",
-    memory: { role: 'repairer', target: null }
+    name: name,
+    memory: { role: name, target: null }
 };
 
-ScreepType["builder"] = 
+name = "builder";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [CARRY, WORK, WORK, MOVE],
     limit: 3,
     min: 1,
-    name: "builder",
-    memory: { role: 'builder', building: false, target: null }
+    name: name,
+    memory: { role: name, target: null, building: false }
 };
 
-ScreepType["harvester"] = 
+name = "harvester";
+ScreepType.push(name);
+ScreepType[name] = 
 {
     signature: [WORK, WORK, MOVE, MOVE],
     limit: 2,
     min: 1,
-    name: "harvester",
-    memory: { role: 'harvester', target: null }
+    name: name,
+    memory: { role: name, target: null }
 };
 
 var startScreeps = ["harvester", "hauler", "builder"];
