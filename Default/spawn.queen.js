@@ -18,7 +18,6 @@ var spawnScreep = function (st, name) {
     return Spawner().spawnCreep(st.signature, name, { memory: st.memory });
 }
 
-
 var CheckMins = function (st) {
     var screeps = cUtility.FilterCreeps(st);
     return screeps.length < st.min;
@@ -87,7 +86,6 @@ module.exports =
             
             for(var types = 0; types < CreepType.length; types += 1)
             {
-                console.log("type: " + CreepType[CreepType[types]]);
                 CheckAndSpawnMin(CreepType[CreepType[types]]);
             }
         }

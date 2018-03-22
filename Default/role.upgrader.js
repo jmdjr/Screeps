@@ -1,5 +1,7 @@
 //------------------------------------------------------------------------------------------------------
 // role.upgrader
+var cUtility = require('creepUtility');
+
 module.exports = 
 {
     run: function(creep) {
@@ -19,10 +21,7 @@ module.exports =
             }
         }
         else {
-            var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#ffaa00'}});
-            }
+            cUtility.GrabSomeEnergy(creep);
         }
     }
 };
