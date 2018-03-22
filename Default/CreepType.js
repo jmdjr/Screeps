@@ -66,4 +66,7 @@ CreepType[name] =
     memory: { role: name, target: null }
 };
 
-var startScreeps = ["harvester", "hauler", "builder"];
+module.exports = {
+    CreepType: CreepType,
+    startCreeps: ["harvester", "hauler", "builder"];
+}
