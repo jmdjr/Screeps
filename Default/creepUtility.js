@@ -70,12 +70,13 @@ CreepType[name] =
 
 
 module.exports = {
+    CreepType: CreepType,
+    CreepOrder: ['stem', 'harvester', 'builder', 'hauler', 'upgrader',  'repairer' ],
+    
     FilterCreeps: function (st) {
         return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
     },
 
-    CreepType: CreepType,
-    CreepOrder: ['stem', 'harvester', 'builder', 'hauler', 'upgrader',  'repairer' ],
     GrabSomeEnergy: function (creep) 
     {
         return this.GrabFromDroppedEnergy(creep) ||  this.GrabFromSources(creep);
