@@ -20,7 +20,7 @@ module.exports =
 
         if(creep.memory.upgrading) 
         {
-            if(!cUtility.MoveToDo(creep, (c, t) => c.upgradeController(t), target, true))
+            if(!cUtility.MoveToDo(creep, (c, t) => c.upgradeController(t), creep.room.controller, true))
             {
                 cUtility.MakeRoad(creep);
             }

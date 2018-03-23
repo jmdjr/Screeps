@@ -129,6 +129,7 @@ module.exports = {
 
         return true;
     },
+    
     MakeRoad: function(creep) 
     {
         creep.room.createConstructionSite(creep.pos, STRUCTURE_ROAD);
