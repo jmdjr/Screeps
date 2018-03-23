@@ -28,9 +28,9 @@ name = "builder";
 CreepType.push(name);
 CreepType[name] = 
 {
-    signature: [CARRY, WORK, WORK, MOVE],
+    signature: [CARRY, CARRY, CARRY, WORK, MOVE],
     limit: 3,
-    min: 1,
+    min: 2,
     name: name,
     memory: { role: name, target: null, building: false }
 };
@@ -41,7 +41,7 @@ CreepType[name] =
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
     limit: 4,
-    min: 1,
+    min: 2,
     name: name,
     memory: { role: name, target: null }
 };
