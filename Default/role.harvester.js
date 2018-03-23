@@ -40,7 +40,7 @@ module.exports =
         var target = Game.getObjectById(creep.memory.target);
         if(!cUtility.MoveToDo(creep, (c, t) => c.harvest(t), target, true))
         {
-            creep.room.createConstructionSite(creep.pos, STRUCTURE_ROAD);
+            cUtility.MakeRoad(creep);
         }
     }
 };
