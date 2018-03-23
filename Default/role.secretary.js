@@ -2,7 +2,7 @@
 // role.secretary
 
 var cUtility = require('creepUtility');
-var target = null;
+var ledger = [];
 module.exports = 
 {
     run: function(creep) 
@@ -25,13 +25,18 @@ module.exports =
 
             if(targets != null)
             {
-                creep.memory.target = cUtility.FindClosest(creep, targets)[0];
+                creep.memory.target = cUtility.FindClosest(creep, targets)[0].id;
             }
         }
 
         if(creep.memory.target != null && creep.memory.delivering) 
         {
-            cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), creep.memory.target, false);
+            cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), Game.getObjectById(creep.memory.target), false);
+        }
+        
+        if(!creep.memory.delivering && creep.memory.target == null)
+        {
+            cUtility.GrabFromDroppedEnergy(creep);
         }
     }
 };
