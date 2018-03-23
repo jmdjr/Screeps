@@ -31,7 +31,16 @@ module.exports =
 
         if(creep.memory.target != null && creep.memory.delivering) 
         {
+            var target = Game.getObjectById(creep.memory.target);
+
+            if(target.carry.energy >= target.carryCapacity)
+            {
+                
+            }
+            
             cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), Game.getObjectById(creep.memory.target), false);
+
+
         }
         
         if(!creep.memory.delivering && creep.memory.target == null)

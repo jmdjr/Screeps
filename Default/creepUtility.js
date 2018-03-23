@@ -76,7 +76,7 @@ CreepType[name] =
     limit: 1,
     min: 1,
     name: name,
-    memory: { role: name, target: null }
+    memory: { role: name, transfering: false, target: null }
 };
 
 
@@ -120,6 +120,7 @@ module.exports = {
         }
         return false;
     },
+
     FindClosest: function(creep, targets) 
     {
         return _.sortBy(targets, s => creep.pos.getRangeTo(s));
