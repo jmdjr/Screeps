@@ -7,11 +7,17 @@ module.exports =
 {
     run: function(creep) 
     {
-        if(creep.carry.energy < creep.carryCapacity) 
+        if(creep.carry.energy == 0) 
         {
-            cUtility.GrabFromDroppedEnergy(creep);
+            creep.memory.target = null;
+            creep.memory.delivering = false;
         }
-        else 
+        else if(creep.carry.energy >= creep.carryCapacity)
+        {
+            creep.memory.delivering = true;
+        }
+            
+        if(creep.memory.delivering && creep.memory.target == null) 
         {
             var hungryCreeps = creep.room.find(FIND_MY_CREEPS, { filter: (c) =>  { return c.memory.role != 'hauler' && (c.carry[RESOURCE_ENERGY] < c.carryCapacity); } });
             
@@ -19,12 +25,13 @@ module.exports =
 
             if(targets != null)
             {
-                var target = cUtility.FindClosest(creep, targets)[0];
-                if(target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) 
-                {
-                    creep.moveTo(target/*, { visualizePathStyle: { stroke: '#ffffff' } }*/);
-                }
+                creep.memory.target = cUtility.FindClosest(creep, targets)[0];
             }
+        }
+
+        if(creep.memory.target != null && creep.memory.delivering) 
+        {
+            cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), creep.memory.target, false);
         }
     }
 };
