@@ -11,7 +11,7 @@ module.exports =
         || err == ERR_NOT_ENOUGH_ENERGY) 
         {
             creep.moveTo(creep.room.controller);
-            cUitily.MakeRoad(creep);
+            cUtility.MakeRoad(creep);
         }
     }
 };
