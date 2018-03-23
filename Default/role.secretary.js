@@ -13,12 +13,9 @@ module.exports =
         }
         else 
         {
-            targets = _.toArray(targets);
-
             var hungryCreeps = creep.room.find(FIND_MY_CREEPS, { filter: (c) =>  { return c.memory.role != 'hauler' && (c.carry[RESOURCE_ENERGY] < c.carryCapacity); } });
             
-            targets = targets.concat(_.toArray(hungryCreeps));
-            // console.log(targets.join(', '));
+            var targets = _.toArray(hungryCreeps);
 
             if(targets != null)
             {
