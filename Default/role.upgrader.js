@@ -20,15 +20,12 @@ module.exports =
 
         if(creep.memory.upgrading) 
         {
-            if(creep.upgradeController(target) == ERR_NOT_IN_RANGE
-            || creep.upgradeController(target) == ERR_NOT_ENOUGH_ENERGY) 
+            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE
+            || creep.upgradeController(creep.room.controller) == ERR_NOT_ENOUGH_ENERGY) 
             {
-                creep.moveTo(target);
+                creep.moveTo(creep.room.controller);
+                cUitily.MakeRoad(creep);
             }
-        }
-        else 
-        {
-            cUtility.GrabSomeEnergy(creep);
         }
     }
 };
