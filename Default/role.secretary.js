@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------------------------------
-// role.hauler
+// role.secretary
 
 var cUtility = require('creepUtility');
 var target = null;
@@ -13,20 +13,6 @@ module.exports =
         }
         else 
         {
-            var targets = creep.room.find(FIND_STRUCTURES, 
-            {
-                filter: (structure) => 
-                {
-                    return (structure.structureType == STRUCTURE_EXTENSION 
-                            || structure.structureType == STRUCTURE_TOWER
-                            || structure.structureType == STRUCTURE_SPAWN
-                            || structure.structureType == STRUCTURE_STORAGE
-                            || structure.structureType == STRUCTURE_CONTAINER) 
-                            && (structure.energy < structure.energyCapacity 
-                        || (structure.store && structure.store.energy < structure.store.energyCapacity));
-                }
-            });
-
             targets = _.toArray(targets);
 
             var hungryCreeps = creep.room.find(FIND_MY_CREEPS, { filter: (c) =>  { return c.memory.role != 'hauler' && (c.carry[RESOURCE_ENERGY] < c.carryCapacity); } });

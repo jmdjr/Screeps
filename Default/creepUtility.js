@@ -2,16 +2,16 @@
 var CreepType = [];
 var name = '';
 
-name = "repairer";
-CreepType.push(name);
-CreepType[name] = 
-{
-    signature: [CARRY, WORK, MOVE],
-    limit: 3,
-    min: 1,
-    name: name,
-    memory: { role: name, target: null }
-};
+// name = "repairer";
+// CreepType.push(name);
+// CreepType[name] = 
+// {
+//     signature: [CARRY, WORK, MOVE],
+//     limit: 3,
+//     min: 1,
+//     name: name,
+//     memory: { role: name, target: null }
+// };
 
 name = "upgrader";
 CreepType.push(name);
@@ -30,12 +30,23 @@ CreepType[name] =
 {
     signature: [CARRY, CARRY, CARRY, WORK, MOVE],
     limit: 3,
-    min: 2,
+    min: 1,
     name: name,
     memory: { role: name, target: null, building: false }
 };
 
 name = "hauler";
+CreepType.push(name);
+CreepType[name] = 
+{
+    signature: [CARRY, CARRY, WORK, MOVE, MOVE],
+    limit: 4,
+    min: 1,
+    name: name,
+    memory: { role: name, target: null }
+};
+
+name = "secretary";
 CreepType.push(name);
 CreepType[name] = 
 {
@@ -52,7 +63,7 @@ CreepType[name] =
 {
     signature: [WORK, WORK, MOVE, MOVE],
     limit: 4,
-    min: 2,
+    min: 3,
     name: name,
     memory: { role: name, target: null }
 };
@@ -62,7 +73,7 @@ CreepType.push(name);
 CreepType[name] = 
 {
     signature: [CARRY, CARRY, WORK, MOVE, MOVE],
-    limit: 3,
+    limit: 1,
     min: 1,
     name: name,
     memory: { role: name, target: null }
@@ -71,7 +82,7 @@ CreepType[name] =
 
 module.exports = {
     CreepType: CreepType,
-    CreepOrder: ['stem', 'harvester', 'builder', 'hauler', 'upgrader' ],
+    CreepOrder: ['stem', 'harvester', 'builder', 'hauler', 'secretary', 'upgrader' ],
     
     FilterCreeps: function (st) {
         return _.filter(Game.creeps, (creep) => creep.memory.role === st.memory.role);
