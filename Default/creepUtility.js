@@ -54,7 +54,7 @@ CreepType[name] =
     limit: 4,
     min: 2,
     name: name,
-    memory: { role: name, delivering = false, target: null }
+    memory: { role: name, delivering: false, target: null }
 };
 
 name = "harvester";
