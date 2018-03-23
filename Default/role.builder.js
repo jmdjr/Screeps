@@ -7,8 +7,8 @@ module.exports = {
         run: function(creep) 
         {
             var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-            var closest = cUtility.FindClosest(creep, targets);
-            
+            var closest = cUtility.FindClosest(creep, targets)[0];
+
             if(creep.memory.building)
             {
                 if(targets.length > 0)
