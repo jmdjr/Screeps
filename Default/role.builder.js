@@ -8,12 +8,27 @@ module.exports = {
         {
             var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 
-            if(targets.length > 0) {
-
-                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+            if(creep.memory.building)
+            {
+                if(targets.length > 0)
+                {
+                    if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) 
+                    {
+                        creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    }
+                    else 
+                    {
+                        creep.memory.building = false;
+                    }
                 }
-                else 
+            }
+            else
+            {
+                if(creep.carry.energy < creep.carryCapacity) 
+                {
+                    cUtility.GrabSomeEnergy(creep);
+                }
+                else
                 {
                     creep.memory.building = true;
                 }
