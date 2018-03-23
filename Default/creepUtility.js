@@ -35,17 +35,6 @@ CreepType[name] =
     memory: { role: name, target: null, building: false }
 };
 
-name = "roadpaver";
-CreepType.push(name);
-CreepType[name] = 
-{
-    signature: [CARRY, WORK, MOVE],
-    limit: 3,
-    min: 1,
-    name: name,
-    memory: { role: name, target: null }
-};
-
 name = "hauler";
 CreepType.push(name);
 CreepType[name] = 
@@ -86,7 +75,7 @@ module.exports = {
     },
 
     CreepType: CreepType,
-    CreepOrder: ['stem', 'harvester', 'hauler', 'upgrader', 'roadpaver', 'builder',  'repairer' ],
+    CreepOrder: ['stem', 'harvester', 'builder', 'hauler', 'upgrader',  'repairer' ],
     GrabSomeEnergy: function (creep) 
     {
         return this.GrabFromDroppedEnergy(creep) ||  this.GrabFromSources(creep);
@@ -135,6 +124,9 @@ module.exports = {
         if(target != null && action(creep, target) == ERR_NOT_IN_RANGE) 
         {
             creep.moveTo(target, show);
+            return false;
         }
+
+        return true;
     }
 }
