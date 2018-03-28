@@ -25,7 +25,11 @@ module.exports =
 
             if(targets != null)
             {
-                creep.memory.target = cUtility.FindClosest(creep, targets)[0].id;
+                var closest = cUtility.FindClosest(creep, targets);
+                if(closest.length > 0)
+                {
+                    creep.memory.target = closest[0].id;
+                }
             }
         }
 
@@ -33,9 +37,10 @@ module.exports =
         {
             var target = Game.getObjectById(creep.memory.target);
 
-            if(target.carry.energy >= target.carryCapacity)
+            if(target && target.carry.energy >= target.carryCapacity)
             {
-                
+                creep.memory.target = null;
+                creep.memory.delivering = false;
             }
             
             cUtility.MoveToDo(creep, (c, t) => c.transfer(t, RESOURCE_ENERGY), Game.getObjectById(creep.memory.target), false);
