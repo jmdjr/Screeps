@@ -52,18 +52,16 @@ module.exports =
 
         var availables = SourcesNotAtLimit(creep);
 
-        console.log(availables);
-            
         if(availables.length > 0 && creep.memory.target == null)
         {
             availables = Array.from(availables, a => Game.getObjectById(a));
             var targets = cUtility.FindClosest(creep, availables);
-            console.log(Memory.takenSources);
 
             if(targets.length > 0) 
             {
                 creep.memory.target = targets[0].id;
-                AddTakenSource(Memory.takenSources, creep.memory.target)
+                AddTakenSource(Memory.takenSources, creep.memory.target);
+                console.log(Memory.takenSources);
             }
         }
 
