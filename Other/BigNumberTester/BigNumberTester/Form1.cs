@@ -32,6 +32,30 @@ namespace BigNumberTester
 			return baseCostOfUpgrade * (float)Math.Pow(upgradeMultiplier, numberOfUpgrades);
 		}
 
+		public float CollectingAmount()
+		{
+			return baseCollectingAmount * (float)Math.Pow(collectingMutliplier, numberOfUpgrades);
+		}
+
+		public void updateNumber()
+		{
+			BigNumberLabel.Text = number.ToString();
+		}
+
+		public void updateUpgrades()
+		{
+			TotalUpgradesLabel.Text = numberOfUpgrades.ToString();
+		}
+		public void updateUpgradeCost()
+		{
+			CostUpgradeButton.Text = CostForNextUpgrade().ToString();
+		}
+
+		public void updateCollectingAmount()
+		{
+			CollectingAmountLabel.Text = CollectingAmount().ToString();
+		}
+
 		public void updateClock()
 		{
 			TimeRemainingButton.Text = remainingTime.ToString();
@@ -47,7 +71,10 @@ namespace BigNumberTester
 			InitializeComponent();
 			resetClock();
 			updateClock();
-
+			updateNumber();
+			updateUpgrades();
+			updateUpgradeCost();
+			updateCollectingAmount();
 		}
 
 		private void PurchaseMultiplier_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,9 +94,28 @@ namespace BigNumberTester
 
 		private void TimeRemainingButton_Click(object sender, EventArgs e)
 		{
-			if(!AutoCollect.Checked && timeRemainingTimer.Enabled)
+			if(!AutoCollect.Checked && !timeRemainingTimer.Enabled)
 			{
+				timeRemainingTimer.Enabled = true;
+			}
+		}
 
+		TimeSpan tickOff = new TimeSpan(0, 0, 0, 0, 100);
+
+		private void timeRemainingTimer_Tick(object sender, EventArgs e)
+		{
+			if(remainingTime.Ticks > 0)
+			{
+				remainingTime = remainingTime.Subtract(tickOff);
+				updateClock();
+			}
+			else
+			{
+				number += CollectingAmount();
+				updateNumber();
+				resetClock();
+				updateClock();
+				timeRemainingTimer.Enabled = false;
 			}
 		}
 	}

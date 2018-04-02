@@ -127,6 +127,10 @@
 			this.TimeRemainingButton.UseVisualStyleBackColor = true;
 			this.TimeRemainingButton.Click += new System.EventHandler(this.TimeRemainingButton_Click);
 			// 
+			// timeRemainingTimer
+			// 
+			this.timeRemainingTimer.Tick += new System.EventHandler(this.timeRemainingTimer_Tick);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
