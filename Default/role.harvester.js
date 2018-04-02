@@ -66,9 +66,6 @@ module.exports =
         }
 
         var target = Game.getObjectById(creep.memory.target);
-        if(!cUtility.MoveToDo(creep, (c, t) => c.harvest(t), target, true))
-        {
-            cUtility.MakeRoad(creep);
-        }
+        cUtility.MoveToDo(creep, (c, t) => c.harvest(t), target, true);
     }
 };
