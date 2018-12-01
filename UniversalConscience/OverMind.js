@@ -7,13 +7,13 @@ module.exports =
             Rooms: []
         },
         AddAllAvailableRooms:function() {
-            for(const i in Game.rooms) {
-                var testRoom = Game.rooms[i];                
-                // room.Memory = {
-                //     Objective: "Testing..."
-                // };
-                this.Memory.Rooms.push(testRoom);
-            }
+            // for(const i in Game.rooms) {
+            //     var testRoom = Game.rooms[i];                
+            //     // room.Memory = {
+            //     //     Objective: "Testing..."
+            //     // };
+            //     this.Memory.Rooms.push(testRoom);
+            // }
         },
         Print: function() {
             console.log(this.Memory.IsAwake);
