@@ -9,9 +9,9 @@ module.exports =
         AddAllAvailableRooms:function() {
             for(const i in Game.rooms) {
                 var room = Game.rooms[i];                
-                room.Memory = {
-                    Objective: "Testing..."
-                };
+                // room.Memory = {
+                //     Objective: "Testing..."
+                // };
                 this.Memory.Rooms.push(room);
             }
         },
