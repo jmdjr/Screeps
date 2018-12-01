@@ -10,7 +10,9 @@ module.exports =
             for(const i in Game.rooms) {
                 var room = Game.rooms[i];
                 this.Memory.Rooms.push(room);
-                room.Memory = {Objective: "Testing..."}
+                room.Memory = {
+                    Objective: "Testing..."
+                };
             }
         },
         Print: function() {
