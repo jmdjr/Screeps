@@ -3,10 +3,7 @@ module.exports =
 {
     OverMind: {
         IsAwake: false,
-        Rooms: [],
-        Print: function() {
-            console.log(Rooms);
-        }
+        Rooms: []
     },
     // First thing, WakeUp
     InitializeOM: function() {
