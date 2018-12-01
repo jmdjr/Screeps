@@ -5,7 +5,6 @@ module.exports =
         IsAwake: false,
         Rooms: [],
         Print: function() {
-            console.table(this.Rooms);
         }
     },
     // First thing, WakeUp
