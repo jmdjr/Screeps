@@ -3,7 +3,10 @@ module.exports =
 {
     OverMind: {
         IsAwake: false,
-        Rooms: []
+        Rooms: [],
+        ToString: function() {
+            // console.table(this.Rooms);
+        }
     },
     // First thing, WakeUp
     InitializeOM: function() {
@@ -15,6 +18,7 @@ module.exports =
         {
             this.OverMind = Memory.OverMind;
             console.log("reload remembered overmind");
+            this.OverMind.ToString
         }
     },
 
