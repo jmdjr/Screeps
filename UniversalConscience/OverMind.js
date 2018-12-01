@@ -13,6 +13,7 @@ module.exports =
         if(!Memory.OverMind) {
             Memory.OverMind = this.OverMind;
             console.log("initialize overmind");
+            this.OverMind.Print();
         }
         else
         {
