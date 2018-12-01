@@ -8,11 +8,11 @@ module.exports =
         },
         AddAllAvailableRooms:function() {
             for(const i in Game.rooms) {
-                var room = Game.rooms[i];                
+                // var room = Game.rooms[i];                
                 // room.Memory = {
                 //     Objective: "Testing..."
                 // };
-                this.Memory.Rooms.push(room);
+                this.Memory.Rooms.push(Game.rooms[i]);
             }
         },
         Print: function() {
