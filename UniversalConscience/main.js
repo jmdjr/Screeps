@@ -1,12 +1,8 @@
 
-var OM = require('OverMind');
+var OMSystem = require('OverMind');
 
 // the overmind has just 
-if(!OM.IsAwake)
-{
-    console.log("test awake");
-    OM.IsAwake = true;
-}
+OMSystem.InitializeOM();
 
 module.exports.loop = function () {
     //Overmind needs to look at rooms, and try and work towards completing their objectives.

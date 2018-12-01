@@ -1,11 +1,21 @@
 
 module.exports =
 {
-    IsAwake: false,
-    Rooms: [],
-
+    OverMind: {
+        IsAwake: false,
+        Rooms: [],
+    },
     // First thing, WakeUp
-    WakeUp: function() {
+    InitializeOM: function() {
+        if(!Memory.OverMind) {
+            Memory.OverMind = this.OverMind;
+            console.log("initialize overmind");
+        }
+        else
+        {
+            this.OverMind = Memory.OverMind;
+            console.log("reload remembered overmind");
+        }
     },
 
 }
