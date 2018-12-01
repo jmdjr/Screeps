@@ -6,17 +6,23 @@ module.exports =
             IsAwake: false,
             Rooms: []
         },
+        AddAllAvailableRooms:function() {
+            for(const i in Game.rooms) {
+                this.Memory.Rooms.push(Game.rooms[i]);
+            }
+        },
         Print: function() {
             console.log(this.Memory.IsAwake);
-        } 
+        },
     },
 
-    // First thing, WakeUp
+    // First things first
     InitializeOM: function() {
         if(!Memory.OverMind) {
             Memory.OverMind = this.OverMind.Memory;
             // console.log("initialize overmind");
-
+            
+            this.OverMind.AddAllAvailableRooms();
             this.OverMind.Memory.IsAwake = true;
         }
         else

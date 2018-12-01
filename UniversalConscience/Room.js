@@ -1,13 +1,10 @@
 // A Room.
 module.exports =
 {
-    Room: function() {
+    Room: {
 
-        
     },
     MakeRoom: function() {
-
-        return 
     }
 
 }
