@@ -1,9 +1,13 @@
 // A Room.
 module.exports =
 {
-    // First thing, WakeUp
-    WakeUp: function() {
+    Room: function() {
 
+        
     },
+    MakeRoom: function() {
+
+        return 
+    }
 
 }

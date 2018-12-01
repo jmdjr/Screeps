@@ -10,5 +10,5 @@ module.exports.loop = function () {
     //    - room report current objective (upgrading: needs a constant upgrader with energy flowing to them.)
     //       - upgrader 
 
-    console.log("tick");
+    // console.log("tick");
 }
