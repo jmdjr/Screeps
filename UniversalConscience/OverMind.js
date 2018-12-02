@@ -7,13 +7,13 @@ module.exports =
             Rooms: []
         },
         AddAllAvailableRooms:function() {
-            // for(const i in Game.rooms) {
-            //     var testRoom = Game.rooms[i];                
-            //     // room.Memory = {
-            //     //     Objective: "Testing..."
-            //     // };
-            //     this.Memory.Rooms.push(testRoom);
-            // }
+            for(const i in Game.rooms) {
+                var testRoom = Game.rooms[i];                
+                // room.Memory = {
+                //     Objective: "Testing..."
+                // };
+                this.Memory.Rooms.push(testRoom);
+            }
         },
         Print: function() {
             console.log(this.Memory.IsAwake);
@@ -24,7 +24,7 @@ module.exports =
     InitializeOM: function() {
         if(!Memory.OverMind) {
             Memory.OverMind = this.OverMind.Memory;
-            // console.log("initialize overmind");
+            console.log("initialize overmind");
             
             this.OverMind.AddAllAvailableRooms();
             this.OverMind.Memory.IsAwake = true;
@@ -32,7 +32,8 @@ module.exports =
         else
         {
             this.OverMind.Memory = Memory.OverMind;
-            // console.log("overmind remembers");
+            this.OverMind.AddAllAvailableRooms();
+            console.log("overmind remembers");
         }
     },
 
