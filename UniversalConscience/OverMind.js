@@ -12,7 +12,7 @@ module.exports =
 
                 this.Memory.Rooms.push(test);
                 var testRoom = this.Memory.Rooms[0];
-                testRoom.Memory = {
+                testRoom.memory = {
                     Objective: "Test"
                 }
             }
