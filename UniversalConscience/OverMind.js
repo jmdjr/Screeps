@@ -12,6 +12,7 @@ module.exports =
                 //     Objective: "Testing..."
                 // };
                 this.Memory.Rooms.push(Game.rooms[i]);
+                var testRoom = this.Memory.Rooms[0];
             }
         },
         Print: function() {
