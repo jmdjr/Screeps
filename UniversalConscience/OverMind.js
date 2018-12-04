@@ -13,9 +13,9 @@ module.exports =
                 var loadedRoom = Game.rooms[i];
 
                 this.Memory.Rooms.push(new ROOM(loadedRoom));
-                loadedRoom.memory = {
-                    Objective: "Test"
-                }
+                // loadedRoom.memory = {
+                //     Objective: "Test"
+                // }
             }
         },
         Print: function() {
