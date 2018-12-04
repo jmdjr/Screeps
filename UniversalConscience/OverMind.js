@@ -12,10 +12,7 @@ module.exports =
             for(const i in Game.rooms) {
                 var loadedRoom = Game.rooms[i];
 
-                this.Memory.Rooms.push(new ROOM(loadedRoom));
-                // loadedRoom.memory = {
-                //     Objective: "Test"
-                // }
+                this.Memory.Rooms.push(ROOM.RealizeRoom(loadedRoom));
             }
         },
         Print: function() {
