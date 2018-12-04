@@ -1,10 +1,4 @@
 // A Room.
-module.exports =
-{
-    Room: {
-
-    },
-    MakeRoom: function() {
-    }
-
+module.exports = function(data) {
+    console.log("this possibly works");
 }
