@@ -6,6 +6,11 @@ module.exports = {
     },
 
     Room: function(data) {
-        console.log("this possibly works");
+        console.log(data.name);
+        this.name = data.name;
+        this.raw = data;
+        this.sources = data.find(FIND_SOURCES) ; // FIND_SOURCES
+
+        console.log(this.sources.join())
     },
 }
