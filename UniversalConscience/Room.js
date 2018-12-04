@@ -7,6 +7,5 @@ module.exports = {
 
     Room: function(data) {
         console.log("this possibly works");
-        debugger;
     },
 }
