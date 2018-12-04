@@ -32,7 +32,6 @@ module.exports =
         else
         {
             this.OverMind.Memory = Memory.OverMind;
-            this.OverMind.AddAllAvailableRooms();
             console.log("overmind remembers");
         }
     },
