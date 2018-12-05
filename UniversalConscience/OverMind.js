@@ -10,6 +10,7 @@ OverMind._Memory = {
 }
 
 OverMind.AddAllAvailableCells = function () {
+    console.log("Adding Cells");
     for (const i in Game.rooms) {
         var cell = new Cell(Game.rooms[i]);
         this._Memory.Cells.push(cell.name);
@@ -36,7 +37,7 @@ OverMind.Awaken = function () {
 };
 
 OverMind.DistributeOrders = function () {
-
+    console.log("assigning Orders");
 };
 
 OverMind.Think = function () {
