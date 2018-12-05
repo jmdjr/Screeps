@@ -20,7 +20,7 @@ OverMind.prototype = {
     },
 
     Print: function () {
-        
+
     },
 
     InitializeOM: function () {
@@ -44,6 +44,6 @@ OverMind.prototype = {
     },
 
     run: function() {
-        // console.log("tick");
+        console.log("tick");
     } 
 };
