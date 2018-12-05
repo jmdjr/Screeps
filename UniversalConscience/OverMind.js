@@ -1,37 +1,48 @@
 
 var Room = require('Room');
 
-module.exports =
-{
-    OverMind: {
-        Memory: {
-            IsAwake: false,
-            Rooms: []
-        },
-        AddAllAvailableRooms:function() {
-            for(const i in Game.rooms) {
-                this.Memory.Rooms.push(new Room(Game.rooms[i]));
-            }
-        },
-        Print: function() {
-            console.log(this.Memory.IsAwake);
-        },
+
+var OverMind = function () {
+    this.Memory = {
+        IsAwake: false,
+        Rooms: [],
+        Objectives: []
+    }
+}
+
+module.exports = OverMind;
+
+OverMind.prototype = {
+    AddAllAvailableRooms: function () {
+        for (const i in Game.rooms) {
+            this.Memory.Rooms.push(new Room(Game.rooms[i]));
+        }
     },
 
-    // First things first
-    InitializeOM: function() {
-        if(!Memory.OverMind) {
-            Memory.OverMind = this.OverMind.Memory;
+    Print: function () {
+        console.log(this.Memory.IsAwake);
+    },
+
+    InitializeOM: function () {
+        if (!Memory.OverMind) {
+            Memory.OverMind = this.Memory;
             console.log("initialize overmind");
-            
-            this.OverMind.AddAllAvailableRooms();
-            this.OverMind.Memory.IsAwake = true;
+
+            this.AddAllAvailableRooms();
+            this.DistributeOrders();
+            this.Memory.IsAwake = true;
         }
-        else
-        {
-            this.OverMind.Memory = Memory.OverMind;
+        else {
+            this.Memory = Memory.OverMind;
             console.log("overmind remembers");
         }
     },
 
-}
+    DistributeOrders: function() {
+
+    },
+
+    run: function() {
+        console.log("tick");
+    } 
+};
