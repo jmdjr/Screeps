@@ -42,8 +42,8 @@ OverMind.DistributeOrders = function () {
 
 OverMind.Think = function () {
     console.log("thinking...");
-    for (var roomName in this.Memory.Rooms) {
-        var room = Game.rooms[roomName];
+    for (var idx in Game.rooms) {
+        var room = Game.rooms[idx];
         console.log(room);
         Room.run.call(room);
     }
