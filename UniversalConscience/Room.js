@@ -18,7 +18,7 @@ var Room = function (data) {
 module.exports = Room;
 
 Room.run = function() {
-        console.log(`{this.name} is completing tasks...` );
+        console.log(`${this.name} is completing tasks...` );
 }
 
 Room.TASKS = {
