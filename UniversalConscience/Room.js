@@ -13,9 +13,10 @@ var Room = function (data) {
     this.Tasks = [];
     this.ObjectiveId = 0;
     this.ActiveTaskId = 0;
+
+    data.Memory = this;
 }
 
-module.exports = Room;
 
 Room.run = function() {
         console.log(`${this.name} is completing tasks...` );
@@ -35,3 +36,6 @@ Room.TASKS = {
         return task;
     }
 }
+
+
+module.exports = Room;
