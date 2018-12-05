@@ -9,7 +9,7 @@ var primaryObjectives = require('PrimaryObjective');
 
 
 Memory.Test = {
-    test1: {name: "Test 1"}
+    name: "Test 1"
 }
 
 var test2 = function() {
