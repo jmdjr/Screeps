@@ -1,7 +1,6 @@
 
 var Overmind = require('OverMind');
-var primaryObjectives = require('PrimaryObjective');
-var Room = require('Room');
+var Cell = require('Cell');
 
 // the overmind has just 
 Overmind.Awaken();

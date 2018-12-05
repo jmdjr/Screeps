@@ -1,7 +1,7 @@
 
 var Objective = require('Objective');
 var Order = require("Order");
-var Room = require("Room");
+var Cell = require("Cell");
 
 var PrimaryObjective = new Objective();
 

@@ -1,7 +1,7 @@
 // the collection of Tasks and Orders needed to fulfill the objectives.
 
 var TaskGroup = {
-    ROOM: function(structureType, sequence) {
+    CELL: function(structureType, sequence) {
         this.requiredStructure = structureType;
         this.runSequence = sequence;
         this.activeSequenceId = 0;
@@ -31,6 +31,6 @@ Task.prototype = {
     }
 }
 
-TaskGroup.ROOM.prototype = Task.prototype;
+TaskGroup.CELL.prototype = Task.prototype;
 TaskGroup.MINION.prototype = Task.prototype;
 

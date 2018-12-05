@@ -1,18 +1,18 @@
 
-var Room = require('Room');
+var Room = require('Cell');
 var OverMind = {};
 module.exports = OverMind;
 
 OverMind.Memory = {
     IsAwake: false,
-    Rooms: [],
+    Cells: [],
     Objectives: []
 }
 
-OverMind.AddAllAvailableRooms = function () {
+OverMind.AddAllAvailableCells = function () {
     for (const i in Game.rooms) {
-        var room = new Room(Game.rooms[i]);
-        this.Memory.Rooms.push(room.name);
+        var cell = new Cell(Game.rooms[i]);
+        this.Memory.Cells.push(cell.name);
     }
 }
 
@@ -24,7 +24,7 @@ OverMind.Awaken = function () {
         console.log("Overmind Awakens");
         Memory.Overmind = this.Memory;
 
-        this.AddAllAvailableRooms();
+        this.AddAllAvailableCells();
         this.DistributeOrders();
         this.Memory.IsAwake = true;
     }
@@ -44,7 +44,7 @@ OverMind.Think = function () {
     console.log("thinking...");
     for (var idx in Game.rooms) {
         var room = Game.rooms[idx];
-        console.log(`${Room} and ${Room.run}`);
+        console.log(`${Cell} and ${Cell.run}`);
         // Room.run.call(room);
     }
 };

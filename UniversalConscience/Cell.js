@@ -3,7 +3,7 @@
 var Order = require('Order');
 var Task = require('Task');
 
-var Room = function (data) {
+var Cell = function (data) {
     this.raw = data;
     this.name = data.name;
     this.sources = data.find(FIND_SOURCES);
@@ -17,13 +17,13 @@ var Room = function (data) {
     data.memory = this;
 }
 
-Room.run = function() {
+Cell.run = function() {
         console.log(`${this.name} is completing tasks...` );
 }
 
-Room.TASKS = {
+Cell.TASKS = {
     SpawnMinion: function (data) {
-        var task = new Task.ROOM(STRUCTURE_SPAWN, [
+        var task = new Task.CELL(STRUCTURE_SPAWN, [
             function (data) {
                 if (data.structure.spawnCreep(data.MinionBody, data.MinionName)) {
 
