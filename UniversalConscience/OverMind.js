@@ -20,6 +20,7 @@ OverMind.Print = function () {
 };
 
 OverMind.Awaken = function () {
+    console.log(Memory.Overmind);
     if (!Memory.OverMind) {
         console.log("Overmind Awakens");
         Memory.Overmind = this._Memory;
