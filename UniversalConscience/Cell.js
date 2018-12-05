@@ -37,4 +37,4 @@ Cell.TASKS = {
 }
 
 
-module.exports = Room;
+module.exports = Cell;
