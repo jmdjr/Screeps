@@ -6,7 +6,8 @@ var Cell = require("Cell");
 var PrimaryObjective = new Objective();
 
 PrimaryObjective.Orders = [
-    ProduceEnergySupplyChain
+    ProduceEnergySupplyChain,
+    
 ];
 
 var ProduceEnergySupplyChain = new Order();
