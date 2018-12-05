@@ -10,8 +10,8 @@ var Room = function (data) {
     this.spawns = data.find(FIND_MY_SPAWNS);
 
     this.controller = data.controller;
-    this.
     this.Tasks = [];
+    this.ObjectiveId = 0;
     this.ActiveTaskId = 0;
 }
 
@@ -19,11 +19,9 @@ module.exports = Room;
 
 Room.prototype = {
     run: function() {
-
+        
     }
 }
-
-
 
 Room.TASKS = {
     SpawnMinion: function (data) {

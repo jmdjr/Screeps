@@ -34,6 +34,7 @@ OverMind.prototype = {
         }
         else {
             this.Memory = Memory.OverMind;
+            this.DistributeOrders();
             console.log("overmind remembers");
         }
     },
@@ -44,5 +45,6 @@ OverMind.prototype = {
 
     run: function() {
         console.log("tick");
+
     } 
 };

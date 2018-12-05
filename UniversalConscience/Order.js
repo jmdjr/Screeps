@@ -4,6 +4,7 @@ var Task = require('Task');
 
 var Order = function() {
     this.Tasks = [];
+    this.IsComplete = false;
 }
 
 module.exports = Order;

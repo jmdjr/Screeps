@@ -14,8 +14,6 @@ Minion.prototype = {
         if(!this.RunningTasks && this.Tasks.length > 0) {
             this.ActiveTaskId = 0;
         }
-
-        
     }
 }
 

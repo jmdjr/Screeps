@@ -10,9 +10,9 @@ PrimaryObjective.Orders = [
 ];
 
 var ProduceEnergySupplyChain = new Order();
-ProduceEnergySupplyChain.Tasks = [
-    Room.TASKS.SpawnMinion;
-]
+// ProduceEnergySupplyChain.Tasks = [
+//     Room.TASKS.SpawnMinion()
+// ]
 
 
 module.exports = PrimaryObjective;

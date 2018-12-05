@@ -6,6 +6,7 @@ var TaskGroup = {
         this.runSequence = sequence;
         this.activeSequenceId = 0;
         this.data = null; // the raw data that is used by the sequence; Defined at design.
+        this.IsComplete = false;
     },
     MINION: function(minionBody, path, structureType, sequence) {
         this.requiredBody = minionBody;
@@ -14,6 +15,7 @@ var TaskGroup = {
         this.runSequence = sequence;
         this.activeSequenceId = 0;
         this.data = null;  // any additional relevant data used by the task.
+        this.IsComplete = false;
     }
 }
 
