@@ -44,6 +44,6 @@ OverMind.prototype = {
     },
 
     run: function() {
-        console.log("tick");
+        // console.log("tick");
     } 
 };
