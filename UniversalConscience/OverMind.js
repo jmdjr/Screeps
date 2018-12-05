@@ -22,7 +22,7 @@ OverMind.Print = function () {
 OverMind.Awaken = function () {
     if (!Memory.OverMind) {
         console.log("Overmind Awakens");
-        Memory.OverMind = this.Memory;
+        Memory.Overmind = this.Memory;
 
         this.AddAllAvailableRooms();
         this.DistributeOrders();
@@ -30,7 +30,7 @@ OverMind.Awaken = function () {
     }
     else {
         console.log("overmind remembers");
-        this.Memory = Memory.OverMind;
+        this.Memory = Memory.Overmind;
 
         this.DistributeOrders();
     }
