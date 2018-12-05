@@ -2,11 +2,11 @@
 var Room = require('Room');
 
 
-var OverMind = function (objectives) {
+var OverMind = function () {
     this.Memory = {
         IsAwake: false,
         Rooms: [],
-        Objectives: null
+        Objectives: []
     }
 }
 
