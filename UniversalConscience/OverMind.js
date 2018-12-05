@@ -34,16 +34,16 @@ OverMind.prototype = {
         }
         else {
             this.Memory = Memory.OverMind;
-            // this.DistributeOrders();
+            this.DistributeOrders();
             console.log("overmind remembers");
         }
     },
 
     DistributeOrders: function() {
-        // console.log("distributing orders");
+
     },
 
     run: function() {
-        console.log("tick\nThe sky is the limit!\nanother line of stuff...");
+    
     } 
 };
