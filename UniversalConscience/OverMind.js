@@ -46,6 +46,7 @@ OverMind.prototype = {
     Think: function() {
         for(var room in this.Memory.Rooms)
         {
+            console.log(room);
             Room.run.call(room);
         }
     } 
