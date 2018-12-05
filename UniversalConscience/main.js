@@ -16,8 +16,6 @@ var test2 = function() {
     console.log(`${this.name} is only a test...`);
 }
 
-test2();
-
 test2.call(Memory.Test);
 
 module.exports.loop = function () {
