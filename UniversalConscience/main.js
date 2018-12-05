@@ -1,4 +1,4 @@
-
+var primaryObjectives = require('PrimaryObjective');
 var Overmind = require('OverMind');
 var Cell = require('Cell');
 
