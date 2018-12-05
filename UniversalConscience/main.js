@@ -7,5 +7,5 @@ var Overmind = new OMSystem(primaryObjectives);
 Overmind.Awaken();
 
 module.exports.loop = function () {
-    Overmind.Think();
+    // Overmind.Think();
 }
