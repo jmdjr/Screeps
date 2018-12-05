@@ -12,5 +12,5 @@ module.exports.loop = function () {
     //       - upgrader 
 
     // console.log("tick");
-    OMSystem.run();
+    Overmind.run();
 }
