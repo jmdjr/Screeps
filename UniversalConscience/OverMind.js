@@ -21,8 +21,9 @@ OverMind.Print = function () {
 };
 
 OverMind.Awaken = function () {
-    console.log(!Memory.Overmind);
-    if (!Memory.OverMind) {
+    var test = !Memory.Overmind;
+    console.log(test);
+    if (test) {
         console.log("Overmind Awakens");
         Memory.Overmind = this._Memory;
 
