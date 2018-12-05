@@ -42,10 +42,9 @@ OverMind.DistributeOrders = function () {
 
 OverMind.Think = function () {
     console.log("thinking...");
-    // for(var indx = 0; indx < this.Memory.Rooms; ++indx)
-    // {
-    // var room = this.Memory.Rooms[0];
-    // console.log(room);
-    // Room.run.call(room);
-    // }
+    for (var roomName in this.Memory.Rooms) {
+        var room = Game.rooms[roomName];
+        console.log(room);
+        Room.run.call(room);
+    }
 };

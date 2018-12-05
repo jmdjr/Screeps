@@ -8,5 +8,5 @@ Overmind.Awaken();
 Memory.Overmind.Objectives = primaryObjectives;
 
 module.exports.loop = function () {
-    // Overmind.Think();
+    Overmind.Think();
 }
