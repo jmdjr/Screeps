@@ -1,5 +1,5 @@
 
-var Room = require('Cell');
+var Cell = require('Cell');
 var OverMind = {};
 module.exports = OverMind;
 
