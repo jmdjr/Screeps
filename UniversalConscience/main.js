@@ -11,6 +11,8 @@ Memory.Test = {
     name: "Test 1"
 }
 
+Memory.Room = new Room();
+
 Room.run.call(Memory.Test);
 
 module.exports.loop = function () {
