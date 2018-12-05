@@ -1,22 +1,17 @@
 
 var OMSystem = require('OverMind');
 var primaryObjectives = require('PrimaryObjective');
+var Room = require('Room');
 
 // the overmind has just 
 // var Overmind = new OMSystem();
 // Overmind.Awaken();
 
-
-
 Memory.Test = {
     name: "Test 1"
 }
 
-var test2 = function() {
-    console.log(`${this.name} is only a test...`);
-}
-
-test2.call(Memory.Test);
+Room.run.call(Memory.Test);
 
 module.exports.loop = function () {
     // Overmind.Think();
