@@ -9,9 +9,16 @@ var primaryObjectives = require('PrimaryObjective');
 
 
 Memory.Test = {
-    test1: 99
-    , test2: function() {console.log("test2");}
+    test1: {name: "Test 1"}
 }
+
+var test2 = function() {
+    console.log(`${this.name} is only a test...`);
+}
+
+test2();
+
+test2.call(Memory.Test);
 
 module.exports.loop = function () {
     // Overmind.Think();
