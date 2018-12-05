@@ -44,6 +44,6 @@ OverMind.prototype = {
     },
 
     run: function() {
-        console.log("tick");
+        console.log("tick\nThe sky is the limit!\nanother line of stuff...");
     } 
 };
