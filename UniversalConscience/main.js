@@ -11,7 +11,7 @@ Memory.Test = {
     name: "Test 1"
 }
 
-Memory.Room = new Room();
+Memory.Room = new Room(Game.rooms[0]);
 
 Room.run.call(Memory.Test);
 

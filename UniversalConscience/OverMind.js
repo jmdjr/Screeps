@@ -28,14 +28,14 @@ OverMind.prototype = {
             Memory.OverMind = this.Memory;
 
             this.AddAllAvailableRooms();
-            this.DistributeOrders();
-            this.Memory.IsAwake = true;
+            // this.DistributeOrders();
+            // this.Memory.IsAwake = true;
         }
         else {
             console.log("overmind remembers");
             this.Memory = Memory.OverMind;
 
-            this.DistributeOrders();
+            // this.DistributeOrders();
         }
     },
 

@@ -14,7 +14,7 @@ var Room = function (data) {
     this.ObjectiveId = 0;
     this.ActiveTaskId = 0;
 
-    data.Memory = this;
+    data.memory = this;
 }
 
 
