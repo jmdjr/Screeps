@@ -17,10 +17,8 @@ var Room = function (data) {
 
 module.exports = Room;
 
-Room.prototype = {
-    run: function() {
-        console.log(`{this.name} is completing tasks...` )
-    }
+Room.run = function() {
+        console.log(`{this.name} is completing tasks...` );
 }
 
 Room.TASKS = {
