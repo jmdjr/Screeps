@@ -1,55 +1,50 @@
 
 var Room = require('Room');
+var OverMind = {};
+module.exports = OverMind;
 
+OverMind.Memory = {
+    IsAwake: false,
+    Rooms: [],
+    Objectives: objectives
+}
 
-var OverMind = function () {
-    this.Memory = {
-        IsAwake: false,
-        Rooms: [],
-        Objectives: []
+OverMind.AddAllAvailableRooms = function () {
+    for (const i in Game.rooms) {
+        this.Memory.Rooms.push(new Room(Game.rooms[i]));
     }
 }
 
-module.exports = OverMind;
+OverMind.Print = function () {
+};
 
-OverMind.prototype = {
-    AddAllAvailableRooms: function () {
-        for (const i in Game.rooms) {
-            this.Memory.Rooms.push(new Room(Game.rooms[i]));
-        }
-    },
+OverMind.Awaken = function () {
+    if (!Memory.OverMind) {
+        console.log("Overmind Awakens");
+        Memory.OverMind = this.Memory;
 
-    Print: function () {
-    },
+        this.AddAllAvailableRooms();
+        this.DistributeOrders();
+        this.Memory.IsAwake = true;
+    }
+    else {
+        console.log("overmind remembers");
+        this.Memory = Memory.OverMind;
 
-    Awaken: function () {
-        if (!Memory.OverMind) {
-            console.log("Overmind Awakens");
-            Memory.OverMind = this.Memory;
+        this.DistributeOrders();
+    }
+};
 
-            this.AddAllAvailableRooms();
-            // this.DistributeOrders();
-            // this.Memory.IsAwake = true;
-        }
-        else {
-            console.log("overmind remembers");
-            this.Memory = Memory.OverMind;
+OverMind.DistributeOrders = function () {
 
-            // this.DistributeOrders();
-        }
-    },
+};
 
-    DistributeOrders: function() {
-
-    },
-
-    Think: function() {
-        console.log("thinking...");
-        // for(var indx = 0; indx < this.Memory.Rooms; ++indx)
-        // {
-            // var room = this.Memory.Rooms[0];
-            // console.log(room);
-            // Room.run.call(room);
-        // }
-    } 
+OverMind.Think = function () {
+    console.log("thinking...");
+    // for(var indx = 0; indx < this.Memory.Rooms; ++indx)
+    // {
+    // var room = this.Memory.Rooms[0];
+    // console.log(room);
+    // Room.run.call(room);
+    // }
 };
