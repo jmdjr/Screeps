@@ -3,9 +3,8 @@ var OMSystem = require('OverMind');
 var primaryObjectives = require('PrimaryObjective');
 
 // the overmind has just 
-var Overmind = new OMSystem();
-console.log(Overmind.Memory.IsAwake);
-Overmind.Awaken();
+// var Overmind = new OMSystem();
+// Overmind.Awaken();
 
 
 
