@@ -4,12 +4,8 @@ var Order = require('Order');
 var Task = require('Task');
 
 var Cell = function (data) {
-    this.raw = data;
-    this.name = data.name;
     this.sources = data.find(FIND_SOURCES);
     this.spawns = data.find(FIND_MY_SPAWNS);
-
-    this.controller = data.controller;
     this.Tasks = [];
     this.ObjectiveId = 0;
     this.ActiveTaskId = 0;

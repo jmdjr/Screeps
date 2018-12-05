@@ -44,7 +44,6 @@ OverMind.Think = function () {
     console.log("thinking...");
     for (var idx in Game.rooms) {
         var room = Game.rooms[idx];
-        console.log(`${Cell} and ${Cell.run}`);
-        // Room.run.call(room);
+        Cell.run.call(room);
     }
 };
