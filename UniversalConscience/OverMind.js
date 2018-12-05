@@ -24,17 +24,18 @@ OverMind.prototype = {
 
     Awaken: function () {
         if (!Memory.OverMind) {
-            Memory.OverMind = this.Memory;
             console.log("Overmind Awakens");
+            Memory.OverMind = this.Memory;
 
             this.AddAllAvailableRooms();
             this.DistributeOrders();
             this.Memory.IsAwake = true;
         }
         else {
-            this.Memory = Memory.OverMind;
-            this.DistributeOrders();
             console.log("overmind remembers");
+            this.Memory = Memory.OverMind;
+
+            this.DistributeOrders();
         }
     },
 
@@ -45,7 +46,7 @@ OverMind.prototype = {
     Think: function() {
         for(var room in this.Memory.Rooms)
         {
-            room.run();
+            Room.prototype.run.invoke(room);
         }
     } 
 };
