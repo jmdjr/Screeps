@@ -2,11 +2,11 @@
 var Room = require('Room');
 
 
-var OverMind = function () {
+var OverMind = function (objectives) {
     this.Memory = {
         IsAwake: false,
         Rooms: [],
-        Objectives: []
+        Objectives: objectives
     }
 }
 
@@ -20,13 +20,12 @@ OverMind.prototype = {
     },
 
     Print: function () {
-
     },
 
-    InitializeOM: function () {
+    Awaken: function () {
         if (!Memory.OverMind) {
             Memory.OverMind = this.Memory;
-            console.log("initialize overmind");
+            console.log("Overmind Awakens");
 
             this.AddAllAvailableRooms();
             this.DistributeOrders();
@@ -43,7 +42,10 @@ OverMind.prototype = {
 
     },
 
-    run: function() {
-    
+    Think: function() {
+        for(var room in this.Memory.Rooms)
+        {
+            room.run();
+        }
     } 
 };

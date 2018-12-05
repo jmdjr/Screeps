@@ -19,7 +19,7 @@ module.exports = Room;
 
 Room.prototype = {
     run: function() {
-        
+        console.log(`{this.name} is completing tasks...` )
     }
 }
 
