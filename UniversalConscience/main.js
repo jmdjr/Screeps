@@ -10,5 +10,5 @@ module.exports.loop = function () {
     // - look at first room
     //    - room report current objective (upgrading: needs a constant upgrader with energy flowing to them.)
     //       - upgrader 
-    Overmind.run();
+    // Overmind.run();
 }
