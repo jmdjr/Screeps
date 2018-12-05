@@ -1,14 +1,16 @@
 // A Room.
-module.exports = {
 
-    RealizeRoom: function(data) {
-        return new this.Room(data);
-    },
+var Order = require('Order');
+var Task = require('Task');
 
-    Room: function(data) {
-        console.log(data.name);
-        this.name = data.name;
-        this.raw = data;
-        this.sources = data.find(FIND_SOURCES); // FIND_SOURCES
-    },
+var Room = function(data) {
+    this.raw = data;
+    this.name = data.name;
+    this.sources = data.find(FIND_SOURCES); 
+    this.spawns = data.find(FIND_MY_SPAWNS);
+    this.controller = data.controller;
+    // this.Orders = 
 }
+
+
+module.exports = Room;

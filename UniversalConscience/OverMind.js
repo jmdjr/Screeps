@@ -1,5 +1,5 @@
 
-var ROOM = require('Room');
+var Room = require('Room');
 
 module.exports =
 {
@@ -10,9 +10,7 @@ module.exports =
         },
         AddAllAvailableRooms:function() {
             for(const i in Game.rooms) {
-                var loadedRoom = Game.rooms[i];
-
-                this.Memory.Rooms.push(ROOM.RealizeRoom(loadedRoom));
+                this.Memory.Rooms.push(new Room(Game.rooms[i]));
             }
         },
         Print: function() {
