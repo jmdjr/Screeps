@@ -20,7 +20,7 @@ OverMind.prototype = {
     },
 
     Print: function () {
-        console.log(this.Memory.IsAwake);
+        
     },
 
     InitializeOM: function () {
