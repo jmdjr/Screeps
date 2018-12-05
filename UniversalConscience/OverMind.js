@@ -6,7 +6,7 @@ module.exports = OverMind;
 OverMind.Memory = {
     IsAwake: false,
     Rooms: [],
-    Objectives: objectives
+    Objectives: []
 }
 
 OverMind.AddAllAvailableRooms = function () {
