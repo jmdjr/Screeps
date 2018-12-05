@@ -44,11 +44,11 @@ OverMind.prototype = {
     },
 
     Think: function() {
-        for(var indx = 0; indx < this.Memory.Rooms; ++indx)
-        {
-            var room = this.Memory.Rooms[indx];
+        // for(var indx = 0; indx < this.Memory.Rooms; ++indx)
+        // {
+            var room = this.Memory.Rooms[0];
             console.log(room);
             Room.run.call(room);
-        }
+        // }
     } 
 };
