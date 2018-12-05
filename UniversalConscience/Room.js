@@ -17,7 +17,6 @@ var Room = function (data) {
     data.memory = this;
 }
 
-
 Room.run = function() {
         console.log(`${this.name} is completing tasks...` );
 }

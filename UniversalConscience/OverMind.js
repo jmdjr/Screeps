@@ -11,7 +11,8 @@ OverMind.Memory = {
 
 OverMind.AddAllAvailableRooms = function () {
     for (const i in Game.rooms) {
-        this.Memory.Rooms.push(new Room(Game.rooms[i]));
+        var room = new Room(Game.rooms[i]);
+        this.Memory.Rooms.push(room.name);
     }
 }
 
