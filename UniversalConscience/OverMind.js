@@ -6,7 +6,7 @@ var OverMind = function (objectives) {
     this.Memory = {
         IsAwake: false,
         Rooms: [],
-        Objectives: objectives
+        Objectives: null
     }
 }
 
