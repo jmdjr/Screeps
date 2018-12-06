@@ -60,7 +60,7 @@ OverMind.FindAvailableCell = function() {
 
     if(this._Memory.Cells.length > 0)
     {
-        cell = Memory.Rooms[this._Memory.Cells[0]];
+        cell = Memory.rooms[this._Memory.Cells[0]];
     }
 
     console.log(cell);
