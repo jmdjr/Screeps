@@ -4,6 +4,7 @@ var Order = require('Order');
 var Task = require('Task');
 
 var Cell = function (data) {
+    this.name = data.name;
     this.sources = data.find(FIND_SOURCES);
     this.spawns = data.find(FIND_MY_SPAWNS);
     this.minions = data.find(FIND_MY_CREEPS);
@@ -13,6 +14,8 @@ var Cell = function (data) {
     
     this.ActiveOrder = null;
     data.memory = this;
+
+
 }
 
 Cell.run = function () {
