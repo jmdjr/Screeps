@@ -18,7 +18,8 @@ OverMind.AddAllAvailableCells = function () {
 }
 
 OverMind.Print = function () {
-};
+
+}
 
 OverMind.Awaken = function () {
     var test = !Memory.Overmind;
@@ -35,11 +36,32 @@ OverMind.Awaken = function () {
         console.log("overmind remembers");
         this.DistributeOrders();
     }
-};
+}
 
 OverMind.DistributeOrders = function () {
     console.log("assigning Orders");
-};
+    var cell = this.FindAvailableCell();
+    var order = this.NextAvailableOrder();
+
+    Cell.AssignNewOrder.call(cell, order);
+}
+
+OverMind.NextAvailableOrder = function() {
+    
+}
+
+
+OverMind.FindAvailableCell = function() {
+    
+    var cell = null;
+
+    if(this._Memory.Cells.length > 0)
+    {
+        cell = this._Memory.Cells[0];
+    }
+
+    return cell;
+}
 
 OverMind.Think = function () {
     console.log("thinking...");

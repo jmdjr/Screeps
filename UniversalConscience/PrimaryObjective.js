@@ -7,13 +7,11 @@ var PrimaryObjective = new Objective();
 
 PrimaryObjective.Orders = [
     ProduceEnergySupplyChain,
-    
 ];
 
 var ProduceEnergySupplyChain = new Order();
-// ProduceEnergySupplyChain.Tasks = [
-//     Room.TASKS.SpawnMinion()
-// ]
-
+ProduceEnergySupplyChain.Tasks = [
+    Cell.Tasks.SpawnMinion("MMMCW")
+]
 
 module.exports = PrimaryObjective;
