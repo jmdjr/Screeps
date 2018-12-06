@@ -41,6 +41,9 @@ OverMind.Awaken = function () {
 OverMind.DistributeOrders = function () {
     console.log("assigning Orders");
     var cell = this.FindAvailableCell();
+    
+    if(!cell) { return; }
+
     var order = this.NextAvailableOrder();
 
     Cell.AssignNewOrder.call(cell, order);
