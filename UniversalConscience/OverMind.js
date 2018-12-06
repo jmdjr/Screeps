@@ -47,7 +47,7 @@ OverMind.DistributeOrders = function () {
 }
 
 OverMind.NextAvailableOrder = function() {
-    
+    return ;
 }
 
 

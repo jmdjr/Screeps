@@ -66,7 +66,7 @@ Cell.CalculateBody = function (minionBody) {
 }
 
 Cell.AssignNewOrder = function(order) {
-    ActiveOrder = order;
+    this.ActiveOrder = order;
 }
 
 Cell.Tasks = {
